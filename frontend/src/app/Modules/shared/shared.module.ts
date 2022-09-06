@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { MessagesComponent } from './messages/messages.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MessagesComponent } from './messages/messages.component';
     AboutComponent,
     ContactComponent,
     ServicesComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomepageComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { MessagesComponent } from './messages/messages.component';
     AboutComponent,
     ContactComponent,
     ServicesComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomepageComponent
   ]
 })
 export class SharedModule { }

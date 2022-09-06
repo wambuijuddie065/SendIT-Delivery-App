@@ -2,6 +2,7 @@
     background-color: white;
     /* height: 600px; */
     display: flex;
+    
     flex-direction: column;
     align-items: center;
     border-top: solid 0.1px lightgray;
@@ -14,10 +15,12 @@ h3{
 }
 .grids{
     display: flex;
+    flex-wrap: nowrap;
     gap: 100px;
 }
 .right, .left{
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
     gap: 20px;
 }
@@ -45,4 +48,22 @@ img{
 }
 .desc{
     text-align: center;
+}
+@media screen and (max-width: 380px) {
+
+}
+@media screen and (max-width: 800px) {
+    *{
+        padding: 0;
+    }
+    .mainContainer{
+        padding: 20px;
+    }
+    .grids{
+        gap:20px;
+        flex-wrap: wrap;
+    }
+    .right, .left{
+        flex-wrap: wrap;
+    }
 }

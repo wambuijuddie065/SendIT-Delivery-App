@@ -14,8 +14,8 @@
           <ul><a href="Contact">Contact</a></ul>
       </li>
       <div class="actionsBtns">
-          <button class="loginBtn"  >LOGIN</button>
-          <button class="signupBtn"  >SIGN UP</button>
+          <button class="loginBtn" routerLink="/auth/login"  >LOGIN</button>
+          <button class="signupBtn" routerLink="/auth/signup"  >SIGN UP</button>
           
       </div>
   </div>
@@ -23,12 +23,9 @@
    
 </div>
 <div class="routerContainer" > 
-  <!-- <router-outlet></router-outlet> -->
+  <router-outlet></router-outlet>
   
-  <app-home></app-home>
-  <app-about></app-about>
-  <app-services></app-services>
-  <app-contact></app-contact>
+  
   
   
 
