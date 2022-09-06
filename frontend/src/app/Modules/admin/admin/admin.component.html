@@ -1,1 +1,29 @@
-<p>admin works!</p>
+<div class="main">
+    <div class="left">
+        <div class="topLeft">
+            <a href="" routerLink="/admin/dashboard">Dashboard</a>
+            <a href="">Dispatched</a>
+            <a href="">Delivered</a>
+            <a href="/admin/add">New Delivery</a>
+        </div>
+        <div class="bottomLeft">
+            <a href="">Logout</a>
+        </div>
+       
+        
+       
+
+    </div>
+    <div class="right">
+        <div class="topRight">
+            <div class="search"></div>
+            <div class="profile">
+                <img src="../../../../assets/user-solid.svg" alt="">
+                <p>Admin</p>
+            </div>
+        </div>
+        <div class="bottomRight">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

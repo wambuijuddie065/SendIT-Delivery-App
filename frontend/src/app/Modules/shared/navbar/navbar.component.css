@@ -1,0 +1,59 @@
+.navContainer{
+    
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: fit-content;
+    height: 60px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 100px;
+}
+.logoDiv{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.links{
+    list-style-type: none;
+    display: flex;
+    
+}
+.links ul a {
+    text-decoration: none;
+    color: white;
+}
+.actionsBtns{
+    display: flex;
+    gap: 30px;
+    
+}
+.actionsBtns button{
+    height: 50px;
+    width: 150px;
+    outline: none;
+    
+    border-radius: 30px;
+    font-size: 16px;
+}
+.actionsBtns .loginBtn{
+    color: white;
+    background-color: transparent;
+
+}
+.actionsBtns .signupBtn {
+    background-color: #E11584;
+    color: white;
+    border: solid 1px #06062C;
+
+}
+.logo {
+    height: 100px;
+    width: 50px;
+    
+}

@@ -1,1 +1,27 @@
-<p>admin-dashboard works!</p>
+<div class="main">
+    <div *ngIf="parcelsArr.length;else noParcels" class="parcelsContainer">
+        <div *ngFor="let parcel of parcelsArr,let i=index" class="aParcel">
+            <p>To: Judy Wambui</p>
+            <p>0712345678</p>
+            <p>Nyeri</p> 
+            <p>Parcel Id: 123</p>
+            <p>Fragile</p>
+            <p><i>Dispatched</i></p>
+               
+        </div>
+        <div *ngFor="let parcel of parcelsArr,let i=index" class="aParcel">
+            <p>To: Judy Wambui</p>
+            <p>0712345678</p>
+            <p>Nyeri</p> 
+            <p>Parcel Id: 123</p>
+            <p>Fragile</p>
+            <p><i>Dispatched</i></p>
+               
+        </div>
+    </div>
+   
+</div>
+
+<ng-template #noParcels>
+    <p>No parcels available!!</p>
+</ng-template>

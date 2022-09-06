@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     ContactComponent,
     ServicesComponent,
     MessagesComponent,
-    HomepageComponent
+    HomepageComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     ContactComponent,
     ServicesComponent,
     MessagesComponent,
-    HomepageComponent
+    HomepageComponent,
+    NavbarComponent
   ]
 })
 export class SharedModule { }

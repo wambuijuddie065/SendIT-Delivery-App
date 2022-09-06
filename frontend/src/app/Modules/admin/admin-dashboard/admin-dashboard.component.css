@@ -1,0 +1,14 @@
+.aParcel{
+    border: solid 1px #06062c;
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 20px;
+    
+}
+.parcelsContainer{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
