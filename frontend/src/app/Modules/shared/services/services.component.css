@@ -1,0 +1,48 @@
+.mainContainer{
+    background-color: white;
+    /* height: 600px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid 0.1px lightgray;
+    padding-bottom: 60px;
+}
+h3{
+    color: #e11584;
+    font-size: 30px;
+    margin-bottom: 90px;
+}
+.grids{
+    display: flex;
+    gap: 100px;
+}
+.right, .left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.delivery, .shipping, .secured,.reliability{
+    height: 200px;
+    width: 300px;
+    border: solid 2px #060606;
+    border-radius: 30px;
+    padding: 20px;
+
+}
+img{
+    height: 10%;
+    width: 13%;
+}
+#top{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.heading{
+    font-weight: bold;
+    font-size: large;
+
+}
+.desc{
+    text-align: center;
+}

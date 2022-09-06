@@ -22,6 +22,14 @@ import { MessagesComponent } from './messages/messages.component';
   imports: [
     CommonModule,
     SharedRoutingModule
+  ],
+  exports:[
+    HomeComponent,
+    PageNotFoundComponent,
+    AboutComponent,
+    ContactComponent,
+    ServicesComponent,
+    MessagesComponent
   ]
 })
 export class SharedModule { }
