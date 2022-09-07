@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 
 
 import { SharedModule } from './Modules/shared/shared.module';
+import { DispatchedPipe } from './pipes/dispatched.pipe';
+import { DeliveredPipe } from './pipes/delivered.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DispatchedPipe,
+    DeliveredPipe
   ],
   imports: [
     BrowserModule,

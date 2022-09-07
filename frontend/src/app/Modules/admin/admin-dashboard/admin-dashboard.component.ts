@@ -8,12 +8,12 @@ import { ParcelInterface } from 'src/app/Interfaces/interfaces';
 })
 export class AdminDashboardComponent implements OnInit {
   parcelsArr:ParcelInterface[]=[{
-    to:'Judy Wambui',
-    contact:'0712345678',
-    location:'Nyeri',
-    parcel_id:'45678',
-    description:'dfghjkl',
-    status:'dispatched'
+    to:'',
+    contact:'',
+    location:'',
+    parcel_id:'',
+    description:'',
+    status:''
 
 
   }]

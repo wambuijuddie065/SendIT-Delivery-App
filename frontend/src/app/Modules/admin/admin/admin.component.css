@@ -42,6 +42,20 @@
     border-radius: 10px;
     padding: 10px;
     border: solid 1px #06062C;
+    align-items: center;
+
+}
+.search input{
+    font-size: large;
+    border: none;
+    border-radius: 10px;
+    background-color: #06062C;
+    color: white;
+    width: 300px;
+    height:40px;
+    padding: 2px;
+    text-align: center;
+    outline: none;
 
 }
 .profile{
@@ -54,10 +68,13 @@
 }
 .bottomRight{
     display: flex;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
     flex-direction: column;
     background-color: white;
-    height: 600px;
+    height: 100%;
     padding: 20px;
+    border-bottom: solid 2px #06062C;
+    /* padding-left: 20px;
+    padding-right: 20px; */
 
 }

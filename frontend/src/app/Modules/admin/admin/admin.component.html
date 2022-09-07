@@ -4,10 +4,10 @@
             <a href="" routerLink="/admin/dashboard">Dashboard</a>
             <a href="">Dispatched</a>
             <a href="">Delivered</a>
-            <a href="/admin/add">New Delivery</a>
+            <a href="" routerLink="/admin/add" > New Delivery</a>
         </div>
         <div class="bottomLeft">
-            <a href="">Logout</a>
+            <a href="" (click)="logout()">Logout</a>
         </div>
        
         
@@ -16,7 +16,9 @@
     </div>
     <div class="right">
         <div class="topRight">
-            <div class="search"></div>
+            <div class="search">
+                <input type="search" placeholder="search...">
+            </div>
             <div class="profile">
                 <img src="../../../../assets/user-solid.svg" alt="">
                 <p>Admin</p>

@@ -10,6 +10,8 @@ import { ServicesComponent } from './services/services.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     ServicesComponent,
     MessagesComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,

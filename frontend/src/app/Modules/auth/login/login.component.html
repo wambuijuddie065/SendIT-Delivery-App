@@ -3,12 +3,12 @@
     <div class="container">
         <img class="logo" src="../../../../assets/logo.svg" alt="logo">
             <p>LOGIN</p>
-        <form class="loginForm" #loginForm="ngForm" (ngSubmit)="onSubmit()" >
+        <form class="loginForm" #loginForm="ngForm" (ngSubmit)="onLogin()" >
             
             
-            <input type="text" placeholder="Email" name="email" ngModel>
+            <input type="text" placeholder="Email"  [ngModelOptions]="{standalone:true}"  name="email" ngModel required email="">
             
-            <input type="password" placeholder="Password" name="password" ngModel>
+            <input type="password" placeholder="Password" [ngModelOptions]="{standalone:true}"  name="password" ngModel required="">
             <button type="submit"> LOGIN</button>
         </form>
         <p class="new">New member? <a href="" routerLink="/auth/signup">REGISTER</a></p>

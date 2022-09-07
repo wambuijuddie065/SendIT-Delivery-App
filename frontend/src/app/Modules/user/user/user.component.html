@@ -1,1 +1,36 @@
-<p>user works!</p>
+<div class="main">
+    <div class="left">
+        <div class="topLeft">
+            <a href="" routerLink="/user/sent-parcels">Dashboard</a>
+            <a href="">Dispatched</a>
+            <a href="">Delivered</a>
+            
+        </div>
+        <div class="bottomLeft">
+            <a href="" (click)="logout()">Logout</a>
+        </div>
+       
+        
+       
+
+    </div>
+    <div class="right">
+        <div class="topRight">
+            <div class="search">
+                <input type="search" placeholder="search...">
+            </div>
+            <div class="profile">
+                <img src="../../../../assets/user-solid.svg" alt="">
+                <p>User</p>
+            </div>
+        </div>
+        <div class="bottomRight">
+            <div class="parcelCategory">
+                <button routerLink="/user/sent-parcels">Sent Parcels</button>
+                <button routerLink="/user/received-parcels">Received Parcels</button>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

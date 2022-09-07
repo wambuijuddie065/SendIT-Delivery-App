@@ -1,6 +1,6 @@
 .aParcel{
     border: solid 1px #06062c;
-    height: 250px;
+    height: 300px;
     width: 250px;
     text-align: center;
     padding: 5px;
@@ -11,4 +11,13 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+}
+.viewBtn{
+    height: 30px;
+    width: 100px;
+    outline: none;
+    border: none;
+    background-color: #06062c;
+    color: white;
+    padding: 5px;
 }
