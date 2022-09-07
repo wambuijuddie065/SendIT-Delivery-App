@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http'
 
 
 import { SharedModule } from './Modules/shared/shared.module';
-import { DispatchedPipe } from './pipes/dispatched.pipe';
-import { DeliveredPipe } from './pipes/delivered.pipe';
+import { EffectsModule } from '@ngrx/effects';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DispatchedPipe,
-    DeliveredPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument(),
+    HttpClientModule,
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

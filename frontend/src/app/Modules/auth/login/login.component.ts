@@ -16,18 +16,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onLogin(){
-      
-    if(this.email !== 'admin@gmail.com' && this.password !== '@Admin254' ){
-      this.router.navigate(['/user/sent-parcels'])
-      this.authGuard.login()
-      
-    }
-    else{
-      this.router.navigate(['/admin/dashboard'])
-      
-      this.authGuard.login()
 
-    }
+    this.router.navigate(['/admin/dashboard'])
+    this.authGuard.login()
+      
+    // if(this.email !== 'admin@gmail.com' && this.password !== '@Admin254' ){
+    //   this.router.navigate(['/user/sent-parcels'])
+    //   this.authGuard.login()
+      
+    // }
+    // else{
+    //   this.router.navigate(['/admin/dashboard'])
+      
+    //   this.authGuard.login()
+
+    // }
     
     
     

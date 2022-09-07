@@ -1,29 +1,22 @@
 <div class="main">
-    <div *ngIf="parcelsArr.length;else noParcels" class="parcelsContainer">
-        <div *ngFor="let parcel of parcelsArr,let i=index" class="aParcel">
-            <p>To: Judy Wambui</p>
-            <p>0712345678</p>
-            <p>Nyeri</p> 
-            <p>Parcel Id: 123</p>
-            <p>Fragile</p>
-            <p><i>Dispatched</i></p>
+   
+        <div *ngFor="let parcel of (parcels$|async),let i=index" class="aParcel">
+            <p>{{parcel.to}}</p>
+            <p>{{parcel.contact}}</p>
+            <p>{{parcel.delivery}}</p> 
+            <p>{{parcel.parcel_id}}</p>
+            <p>{{parcel.description}}</p>
+            <p><i>{{parcel.status}}</i></p>
             <button routerLink="/admin/view" class="viewBtn">VIEW</button>
                
         </div>
-        <div *ngFor="let parcel of parcelsArr,let i=index" class="aParcel">
-            <p>To: Judy Wambui</p>
-            <p>0712345678</p>
-            <p>Nyeri</p> 
-            <p>Parcel Id: 123</p>
-            <p>Fragile</p>
-            <p><i>Dispatched</i></p>
-            <button routerLink="/admin/view" class="viewBtn">VIEW</button>
-               
-        </div>
+     
     </div>
    
-</div>
 
-<ng-template #noParcels>
+
+<!-- <ng-template #noParcels>
     <p>No parcels available!!</p>
-</ng-template>
+</ng-template> -->
+
+<!-- <div *ngIf="(parcels$) ; noParcels" class="parcelsContainer"> -->

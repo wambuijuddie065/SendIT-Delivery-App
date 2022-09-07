@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ParcelInterface } from 'src/app/Interfaces/interfaces';
+import { Store ,select} from '@ngrx/store';
+import * as parcelActions from '../AdminStates/parcel.action'
+import { Observable } from 'rxjs';
+import * as fromParcel from '../AdminStates/parcel.reducer'
+
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,20 +12,14 @@ import { ParcelInterface } from 'src/app/Interfaces/interfaces';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  parcelsArr:ParcelInterface[]=[{
-    to:'',
-    contact:'',
-    location:'',
-    parcel_id:'',
-    description:'',
-    status:''
+  parcels$!: Observable<ParcelInterface[]>
+  
 
-
-  }]
-
-  constructor() { }
+  constructor(private store:Store<fromParcel.AppState>) { }
 
   ngOnInit(): void {
+    this.store.dispatch(new parcelActions.LoadParcels())
+    this.parcels$=this.store.pipe(select(fromParcel.getParcels))
   }
 
 }

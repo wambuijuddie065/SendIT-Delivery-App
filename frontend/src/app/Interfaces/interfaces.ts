@@ -1,9 +1,14 @@
 export interface ParcelInterface{
+    id?:string
+    from:string
     to:string
+    email:string
     contact:string
-    location:string
+    delivery:string
     parcel_id:string
     description:string
+    weight:string
+    price?:string
     status:string
 }
 export interface LoginInterface{
