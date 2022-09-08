@@ -12,14 +12,15 @@ import * as fromParcel from '../AdminStates/parcel.reducer'
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  parcels$!: Observable<ParcelInterface[]>
+  // parcels$!: Observable<ParcelInterface[]>
+  parcels$=this.store.pipe(select(fromParcel.getParcels))
   
 
   constructor(private store:Store<fromParcel.AppState>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(new parcelActions.LoadParcels())
-    this.parcels$=this.store.pipe(select(fromParcel.getParcels))
+    this.store.dispatch(parcelActions.LoadParcels())
+   
   }
 
 }

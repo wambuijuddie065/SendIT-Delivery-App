@@ -1,26 +1,48 @@
+import { Action, createAction, props } from '@ngrx/store';
+import { ParcelInterface } from 'src/app/Interfaces/interfaces';
 
-import { Action } from "@ngrx/store";
-import { ParcelInterface } from "src/app/Interfaces/interfaces";
-
-export enum ParcelActionTypes {
-    LOAD_PARCELS="[ParcelInterface] Load Parcels",
-    LOAD_PARCELS_SUCCESS="[ParcelInterface] Load Parcels Success",
-    LOAD_PARCELS_FAIL="[ParcelInterface] Load Parcels Fail"
-}
-
-export class LoadParcels implements Action{
-    readonly type=ParcelActionTypes.LOAD_PARCELS
-
-}
-export class LoadParcelsSuccess implements Action{
-    readonly type=ParcelActionTypes.LOAD_PARCELS_SUCCESS
-    constructor(public payload:ParcelInterface[]){}
-
-}
-export class LoadParcelsFail implements Action{
-    readonly type=ParcelActionTypes.LOAD_PARCELS_FAIL
-    constructor(public payload:string){}
-
-}
-
-export type Actions=LoadParcels | LoadParcelsSuccess  | LoadParcelsFail
+export const LoadParcels = createAction('LoadParcels');
+export const LoadParcelsSuccess = createAction(
+  'LoadParcelsSuccess',
+  props<{ parcels: ParcelInterface[] }>()
+);
+export const LoadParcelsFail = createAction(
+  'LoadParcelsFail',
+  props<{ error: string }>()
+);
+export const AddParcel=createAction(
+    'AddParcel',
+    props<{newParcel:ParcelInterface}>()
+)
+export const AddParcelSuccess=createAction(
+    'AddParcelSuccess',
+    props<{addParcelMessage:string}>()
+)
+export const AddParcelFail=createAction(
+    'AddParcelFail',
+    props<{error:string}>()
+)
+export const UpdateParcel=createAction(
+    'UpdateParcel',
+    props<{updatedParcel:ParcelInterface}>()
+)
+export const UpdateParcelSuccess=createAction(
+    'UpdateParcelSuccess',
+    props<{updateParcelMessage:string}>()
+)
+export const UpdateParcelFail=createAction(
+    'UpdateParcelFail',
+    props<{error:string}>()
+)
+export const DeleteParcel=createAction(
+    'DeleteParcel',
+    props<{parcelId:string}>()
+)
+export const DeleteParcelSuccess=createAction(
+    'DeleteParcelSuccess',
+    props<{deleteParcelMessage:string}>()
+)
+export const DeleteParcelFail=createAction(
+    'DeleteParcelFail',
+    props<{error:string}>()
+)

@@ -5,8 +5,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { ParcelInterface } from 'src/app/Interfaces/interfaces';
 import { AdminService } from 'src/app/Services/admin.service';
+import * as ParcelActions from '../AdminStates/parcel.action'
+import { ParcelState } from '../AdminStates/parcel.reducer';
 
 @Component({
   selector: 'app-add-new-delivery',
@@ -27,7 +31,7 @@ export class AddNewDeliveryComponent implements OnInit {
 
   // status!: string;
 
-  constructor(private adminService: AdminService, private fb: FormBuilder) {}
+  constructor(private router:Router ,private adminService: AdminService, private fb: FormBuilder,private store:Store<ParcelState>) {}
   createParcelForm!: FormGroup;
 
   ngOnInit(): void {
@@ -43,11 +47,10 @@ export class AddNewDeliveryComponent implements OnInit {
   onAdd() {
     const newParcel = this.createParcelForm.value;
 
-    console.log(this.createParcelForm.value);
-
-    this.adminService.addParcel(newParcel).subscribe((response)=>{
-      this.adminService.getParcels()
-    })
+    this.store.dispatch(ParcelActions.AddParcel({newParcel}))
+    this.store.dispatch(ParcelActions.LoadParcels())
+    this.createParcelForm.reset()
+    this.router.navigate(['/admin/dashboard'])
 
   }
 }

@@ -1,6 +1,7 @@
-<div class="main">
+<div class="main" *ngIf="parcels$ |async as p">
+    <div *ngIf="p.length ;else noParcels" class="parcelsContainer">
    
-        <div *ngFor="let parcel of (parcels$|async),let i=index" class="aParcel">
+        <div *ngFor="let parcel of p,let i=index" class="aParcel">
             <p>{{parcel.receiver_details}}</p>
             <p>{{parcel.sender_details}}</p>
             <p>{{parcel.destination}}</p> 
@@ -10,13 +11,13 @@
             <button routerLink="/admin/view" class="viewBtn">VIEW</button>
                
         </div>
+    </div>
      
     </div>
    
 
 
-<!-- <ng-template #noParcels>
+<ng-template #noParcels>
     <p>No parcels available!!</p>
-</ng-template> -->
+</ng-template>
 
-<!-- <div *ngIf="(parcels$) ; noParcels" class="parcelsContainer"> -->
