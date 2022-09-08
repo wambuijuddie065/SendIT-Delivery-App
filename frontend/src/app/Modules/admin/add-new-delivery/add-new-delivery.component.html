@@ -1,40 +1,42 @@
 <div class="main">
-    <form class="newParcelForm" (ngSubmit)="onAdd()" [formGroup]="newParcelForm">
+    <form class="newParcelForm" (ngSubmit)="onAdd()" [formGroup]="createParcelForm">
         <div class="formControl">
             <label for="from">From:</label>
-            <input type="text" FormControlName="from" >
+            <select formControlName="sender_details">
+                <option value="email">user1@gmail</option>
+                <option value="email">user2@gmail</option>
+            </select>
         </div>
-        <div class="receiverDetails">
+        <div class="formControl">
             <label for="to">To:</label>
-            <input type="text" FormControlName="to" >
-            <input type="text" placeholder="contact" FormControlName="contact">
-            <input type="text" placeholder="email" FormControlName="email">
+            
+            <select formControlName="receiver_details">
+                <option value="email">user1@gmail</option>
+                <option value="email">user2@gmail</option>
+            </select>
 
         </div>
-        <div class="formControl">
-            <label for="delivery">Delivery:</label>
-            <input type="text"  FormControlName="delivery">
-        </div>
+       
         <div class="formControl">
             <label for="id">Parcel Id:</label>
-            <input type="text"  FormControlName="parcel_id">
+            <input type="text"  formControlName="parcel_id">
         </div>
         <div class="formControl">
             <label for="description">Description:</label>
-            <input type="text"  FormControlName="description">
+            <input type="text"  formControlName="description">
         </div>
         <div class="formControl">
             <label for="weight">Weight:</label>
-            <input type="text" FormControlName="weight" >
+            <input type="text" formControlName="weight" >
         </div>
         <div class="formControl">
             <label for="status">Status:</label>
-            <select FormControlName="status">
+            <select formControlName="status">
                 <option value="dispatched">Dispatched</option>
                 <option value="delivered">Delivered</option>
             </select>
         </div>
-        <button type="submit">ADD PARCEL</button>
+        <button type="submit" >ADD PARCEL</button>
 
     </form>
 </div>

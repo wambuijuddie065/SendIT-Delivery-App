@@ -1,10 +1,9 @@
 export interface ParcelInterface{
-    id?:string
-    from:string
-    to:string
-    email:string
-    contact:string
-    delivery:string
+    user_id?:string
+    sender_details:string
+    receiver_details:string
+    pick_up?:string
+    destination?:string
     parcel_id:string
     description:string
     weight:string

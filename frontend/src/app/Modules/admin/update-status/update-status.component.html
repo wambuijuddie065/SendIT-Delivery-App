@@ -2,13 +2,19 @@
     <form class="newParcelForm">
         <div class="formControl">
             <label for="from">From:</label>
-            <input type="text" >
+            <select FormControlName="from">
+                <option value="email">user1@gmail</option>
+                <option value="email">user1@gmail</option>
+            </select>
         </div>
         <div class="receiverDetails">
             <label for="to">To:</label>
-            <input type="text" >
-            <input type="text" placeholder="contact">
-            <input type="text" placeholder="email">
+            <input type="text" FormControlName="to" placeholder="name" >
+            <input type="text" placeholder="contact" FormControlName="contact">
+            <select FormControlName="email">
+                <option value="email">user1@gmail</option>
+                <option value="email">user1@gmail</option>
+            </select>
 
         </div>
         <div class="formControl">

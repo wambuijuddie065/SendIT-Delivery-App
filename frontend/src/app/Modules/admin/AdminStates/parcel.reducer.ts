@@ -5,7 +5,7 @@ import * as fromRoot from "../../../State/app-state"
 import { createFeatureSelector, createSelector } from "@ngrx/store"
 
 export interface ParcelState{
-    parcels:ParcelInterface[]
+    parcels:ParcelInterface[] 
     loading:boolean
     loaded:boolean
     error:string

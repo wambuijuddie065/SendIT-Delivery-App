@@ -1,16 +1,15 @@
+
 {
   "parcels": [
     {
-      "id":1,
-     "from":"judy wambui",
-     "to":"judy",
-     "contact":"76545678",
-     "email":"fghnm@fghj.vbn",
-     "delivery":"fvgbhnjmk",
-     "parcel_id":"cfghj",
-     "description":"vgbhnjmk",
-     "weight":"fgbhnjmk",
-     "status":"kjh"
+      "user_id": "1",
+      "sender_details": "sender@gmail.com",
+      "receiver_details": "receiver@gmail.com",
+      "delivery": "Nyeri,",
+      "parcel_id": "123",
+      "description": "Fragile",
+      "weight": "30",
+      "status": "dispatched"
     }
   ]
 }

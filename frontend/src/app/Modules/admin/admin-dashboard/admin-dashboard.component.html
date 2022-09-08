@@ -1,9 +1,9 @@
 <div class="main">
    
         <div *ngFor="let parcel of (parcels$|async),let i=index" class="aParcel">
-            <p>{{parcel.to}}</p>
-            <p>{{parcel.contact}}</p>
-            <p>{{parcel.delivery}}</p> 
+            <p>{{parcel.receiver_details}}</p>
+            <p>{{parcel.sender_details}}</p>
+            <p>{{parcel.destination}}</p> 
             <p>{{parcel.parcel_id}}</p>
             <p>{{parcel.description}}</p>
             <p><i>{{parcel.status}}</i></p>

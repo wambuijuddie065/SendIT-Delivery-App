@@ -9,15 +9,17 @@ import { ParcelInterface } from '../Interfaces/interfaces';
 })
 export class AdminService {
 
-  baseUrl:string="http://localhost:3000/parcels"
+  baseUrl:string="http://localhost:3000"
+  
+  
   constructor(private http :HttpClient) { }
 
   addParcel(parcel:ParcelInterface):Observable<ParcelInterface>{
-    return this.http.post<ParcelInterface>(`${this.baseUrl}`,parcel)
+    return this.http.post<ParcelInterface>(`${this.baseUrl}/add`,parcel)
 
   }
   getParcels():Observable<ParcelInterface[]>{
-    return this.http.get<ParcelInterface[]>(`${this.baseUrl}`)
+    return this.http.get<ParcelInterface[]>(`${this.baseUrl}/parcels`)
 
   }
 
