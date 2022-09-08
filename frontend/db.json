@@ -1,8 +1,8 @@
-
 {
   "parcels": [
     {
-      "user_id": "1",
+      "id": 1,
+      "user_id": "10",
       "sender_details": "sender@gmail.com",
       "receiver_details": "receiver@gmail.com",
       "delivery": "Nyeri,",
@@ -10,6 +10,42 @@
       "description": "Fragile",
       "weight": "30",
       "status": "dispatched"
+    },
+    {
+      "sender_details": "email",
+      "receiver_details": "email",
+      "parcel_id": "kjnhb",
+      "description": "kjhbv",
+      "weight": "9",
+      "status": "delivered",
+      "id": 2
+    },
+    {
+      "sender_details": "email",
+      "receiver_details": "email",
+      "parcel_id": "lkjnbv",
+      "description": "pokij",
+      "weight": "lokjnb",
+      "status": "delivered",
+      "id": 3
+    },
+    {
+      "sender_details": "user1@gmail",
+      "receiver_details": "user1@gmail",
+      "parcel_id": "222",
+      "description": "fragile",
+      "weight": "34",
+      "status": "delivered",
+      "id": 4
+    },
+    {
+      "sender_details": "user1@gmail",
+      "receiver_details": "user1@gmail",
+      "parcel_id": ".knb",
+      "description": "lkjh",
+      "weight": "7890-09",
+      "status": "delivered",
+      "id": 5
     }
   ]
 }
