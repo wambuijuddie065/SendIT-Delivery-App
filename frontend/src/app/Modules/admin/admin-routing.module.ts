@@ -11,7 +11,7 @@ const routes: Routes = [{
   path:'',component:AdminComponent,canActivate:[ParcelsGuardService], children:[
     {path:'add',component:AddNewDeliveryComponent},
     {path:'dashboard',component:AdminDashboardComponent},
-    {path:'view',component:ViewParcelComponent},
+    {path:'view/:id',component:ViewParcelComponent},
     {path:'update',component:UpdateStatusComponent}
   ]
 }];

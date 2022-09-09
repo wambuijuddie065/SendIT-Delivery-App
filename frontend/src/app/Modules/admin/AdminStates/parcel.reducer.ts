@@ -7,7 +7,7 @@ import { Actions } from "@ngrx/effects"
 import { state } from "@angular/animations"
 
 export interface ParcelState{
-    parcelId:string
+    parcelId:number
     parcels:ParcelInterface[] 
     addParcelMessage:string
     updateParcelMessage:string
@@ -22,7 +22,7 @@ export interface AppState extends fromRoot.AppState{
 }
 
 export const initialState:ParcelState= {
-    parcelId:"",
+    parcelId:0,
     parcels:[],
     addParcelMessage:"",
     updateParcelMessage:"",
@@ -46,7 +46,7 @@ export const initialState:ParcelState= {
     export  const getParcel =createSelector(
         getParcelFeatureState,
         getParcelId,
-        (state,id )=>state.parcels.find(parcel=>parcel.parcel_id===id)
+        (state,id )=>state.parcels.find(parcel=>parcel.id==id)
     )
     export  const getError=createSelector(
         getParcelFeatureState,
@@ -62,6 +62,28 @@ export const parcelReducer=createReducer(initialState,
     }),
     on(parcelActions.LoadParcelsFail,(state,action):ParcelState=>{
         return {...state,error:action.error}
-    })
+    }),
+    on(parcelActions.AddParcelSuccess,(state,action):ParcelState=>{
+        return {...state,addParcelMessage:action.addParcelMessage}
+    }),
+    on(parcelActions.AddParcelFail,(state,action):ParcelState=>{
+        return {...state,error:action.error}
+    }),
+    on(parcelActions.SelectedId,(state,action):ParcelState=>{
+        return {...state,parcelId:action.id}
+    }),
+    on(parcelActions.DeleteParcelSuccess,(state,action):ParcelState=>{
+        return {...state,deleteParcelMessage:action.deleteParcelMessage}
+    }),
+    on(parcelActions.DeleteParcelFail,(state,action):ParcelState=>{
+        return {...state,error:action.error}
+    }),
+    on(parcelActions.UpdateParcelSuccess,(state,action):ParcelState=>{
+        return {...state,updateParcelMessage:action.updateParcelMessage}
+    }),
+    on(parcelActions.UpdateParcelFail,(state,action):ParcelState=>{
+        return {...state,error:action.error}
+    }),
+    
     )
 

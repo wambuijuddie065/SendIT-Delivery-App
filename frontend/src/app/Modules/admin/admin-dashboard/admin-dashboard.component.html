@@ -1,14 +1,15 @@
-<div class="main" *ngIf="parcels$ |async as p">
-    <div *ngIf="p.length ;else noParcels" class="parcelsContainer">
+<div class="main" *ngIf="parcels$ |async as parcels">
+    <div *ngIf="parcels.length ;else noParcels" class="parcelsContainer">
    
-        <div *ngFor="let parcel of p,let i=index" class="aParcel">
+        <div *ngFor="let parcel of parcels,let i=index" class="aParcel">
             <p>{{parcel.receiver_details}}</p>
             <p>{{parcel.sender_details}}</p>
             <p>{{parcel.destination}}</p> 
             <p>{{parcel.parcel_id}}</p>
             <p>{{parcel.description}}</p>
             <p><i>{{parcel.status}}</i></p>
-            <button routerLink="/admin/view" class="viewBtn">VIEW</button>
+            <button (click)="viewParcel(parcel.id)" class="viewBtn">VIEW</button>
+            <button  class="deleteBtn" (click)="onDelete(parcel.id)">DELETE</button>
                
         </div>
     </div>

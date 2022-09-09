@@ -1,13 +1,17 @@
-<div class="main">
-    <div class="left">
+<div class="main" *ngIf="parcel$ | async as parcel">
+    <div class="left" >
         <h3>View details</h3>
-        <p>To: Judy Wambui</p>
-        <p>0712345678</p>
-        <p>Nyeri</p> 
-        <p>Parcel Id: 123</p>
-        <p>Fragile</p>
-        <p><i>Dispatched</i></p>
-        <button routerLink="/admin/update" class="updateBtn">UPDATE </button>
+        <p>{{parcel.receiver_details}}</p>
+        <p>{{parcel.sender_details}}</p>
+        <p>{{parcel.weight}}</p> 
+        <p>{{parcel.parcel_id}}</p> 
+        <p>{{parcel.description}}</p>
+        <p><i>{{parcel.status}}</i></p>
+        <div class="actions">
+            <button routerLink="/admin/update" class="updateBtn">UPDATE </button>
+            <button routerLink="/admin/dashboard" class="backBtn">BACK</button> 
+        </div>
+       
     </div>
     <div class="right"></div>
 

@@ -29,5 +29,14 @@ export class ParcelEffect {
       ))
     )
    })
+   deleteParcel = createEffect(()=>{
+    return this.actions$.pipe(
+      ofType(ParcelActions.DeleteParcel),
+      mergeMap(action=>this.adminService.deleteParcel(action.id).pipe(
+        map(res=>ParcelActions.DeleteParcelSuccess({deleteParcelMessage:res.message})),
+        catchError(error=>of(ParcelActions.DeleteParcelFail({error:error.message})))
+      ))
+    )
+  })
  
 }
