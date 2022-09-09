@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ParcelInterface } from '../Interfaces/interfaces';
+import { DeleteParcel } from '../Modules/admin/AdminStates/parcel.action';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,13 @@ export class AdminService {
   getParcels():Observable<ParcelInterface[]>{
     return this.http.get<ParcelInterface[]>(`${this.baseUrl}`)
 
+  }
+  getParcel(id:number):Observable<ParcelInterface[]>{
+    return this.http.get<ParcelInterface[]>(`${this.baseUrl}/${id}`)
+
+  }
+  deleteParcel(id:number):Observable<{message:string}>{
+    return this.http.delete<{message:string}>(`${this.baseUrl}/${id}`)
   }
 
 }

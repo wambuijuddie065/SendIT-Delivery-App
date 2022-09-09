@@ -2,6 +2,9 @@ import { Action, createAction, props } from '@ngrx/store';
 import { ParcelInterface } from 'src/app/Interfaces/interfaces';
 
 export const LoadParcels = createAction('LoadParcels');
+export const SelectedId=createAction('SelectedId',
+ 
+props<{id:number}>())
 export const LoadParcelsSuccess = createAction(
   'LoadParcelsSuccess',
   props<{ parcels: ParcelInterface[] }>()
@@ -36,7 +39,7 @@ export const UpdateParcelFail=createAction(
 )
 export const DeleteParcel=createAction(
     'DeleteParcel',
-    props<{parcelId:string}>()
+    props<{id:number}>()
 )
 export const DeleteParcelSuccess=createAction(
     'DeleteParcelSuccess',

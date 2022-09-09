@@ -1,4 +1,5 @@
 export interface ParcelInterface{
+    id?:number
     user_id?:string
     sender_details:string
     receiver_details:string

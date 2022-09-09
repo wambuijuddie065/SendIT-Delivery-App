@@ -4,6 +4,7 @@ import { Store ,select} from '@ngrx/store';
 import * as parcelActions from '../AdminStates/parcel.action'
 import { Observable } from 'rxjs';
 import * as fromParcel from '../AdminStates/parcel.reducer'
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,11 +17,27 @@ export class AdminDashboardComponent implements OnInit {
   parcels$=this.store.pipe(select(fromParcel.getParcels))
   
 
-  constructor(private store:Store<fromParcel.AppState>) { }
+  constructor(private store:Store<fromParcel.AppState> , private router:Router,private actRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.store.dispatch(parcelActions.LoadParcels())
+    this.loadParcels()
    
+   
+  }
+  loadParcels(){
+    this.store.dispatch(parcelActions.LoadParcels())
+
+  }
+  onDelete(id:number=0){
+    this.store.dispatch(parcelActions.DeleteParcel({id}))
+    this.store.dispatch(parcelActions.LoadParcels())
+    
+  }
+  viewParcel(id:number=0){
+
+    this.store.dispatch(parcelActions.SelectedId({id}))
+    this.router.navigate([`/admin/view/${id}`],{relativeTo:this.actRoute} )
+
   }
 
 }
