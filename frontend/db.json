@@ -1,3 +1,22 @@
 {
-  "parcels": []
+  "parcels": [
+    {
+      "sender_details": "user1@gmail",
+      "receiver_details": "user2@gmail",
+      "parcel_id": "12345567",
+      "description": "kjfh",
+      "weight": "10",
+      "status": "delivered",
+      "id": 1
+    },
+    {
+      "sender_details": "user2@gmail",
+      "receiver_details": "user2@gmail",
+      "parcel_id": "7",
+      "description": "lkjhg",
+      "weight": ";lkj",
+      "status": "dispatched",
+      "id": 2
+    }
+  ]
 }

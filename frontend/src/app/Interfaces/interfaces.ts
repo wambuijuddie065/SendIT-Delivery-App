@@ -28,3 +28,6 @@ export interface SignupInterface{
     
 
 }
+export interface UpdateResponseInterface{
+    message:string
+}

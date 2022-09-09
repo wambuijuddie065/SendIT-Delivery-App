@@ -18,7 +18,7 @@ export class ViewParcelComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(param=>{this.id=+param['id']})
-    this.store.dispatch(ParcelActions.SelectedId({id:this.id}))
+    // this.store.dispatch(ParcelActions.SelectedId({id:this.id}))
   }
 
 
