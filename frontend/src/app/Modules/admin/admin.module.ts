@@ -14,6 +14,8 @@ import{parcelReducer} from './AdminStates/parcel.reducer'
 import { ParcelEffect } from './AdminStates/parcel.effects';
 
 
+
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -21,6 +23,7 @@ import { ParcelEffect } from './AdminStates/parcel.effects';
     AdminDashboardComponent,
     ViewParcelComponent,
     UpdateStatusComponent
+    
   ],
   imports: [
     CommonModule,

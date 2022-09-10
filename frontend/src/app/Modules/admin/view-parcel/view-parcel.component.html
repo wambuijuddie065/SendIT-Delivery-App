@@ -8,8 +8,8 @@
         <p>{{parcel.description}}</p>
         <p><i>{{parcel.status}}</i></p>
         <div class="actions">
-            <button routerLink="/admin/update" class="updateBtn">UPDATE </button>
-            <button routerLink="/admin/dashboard" class="backBtn">BACK</button> 
+            <button (click)="goUpdate()" class="updateBtn">UPDATE </button>
+            <button (click)="goBack()" class="backBtn">BACK</button> 
         </div>
        
     </div>

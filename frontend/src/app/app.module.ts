@@ -12,9 +12,11 @@ import { SharedModule } from './Modules/shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
