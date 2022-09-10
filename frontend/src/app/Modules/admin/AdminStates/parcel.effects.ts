@@ -38,5 +38,15 @@ export class ParcelEffect {
       ))
     )
   })
+  updateParcel=createEffect(()=>{
+    return this.actions$.pipe(
+      ofType(ParcelActions.UpdateParcel),
+      mergeMap(action=>this.adminService.updateParcel(action.updatedParcel).pipe(
+        map(res=>ParcelActions.UpdateParcelSuccess({updateParcelMessage:res.message})),
+        catchError(error=> of(ParcelActions.UpdateParcelFail({error:error})))
+
+      ))
+    )
+   })
  
 }

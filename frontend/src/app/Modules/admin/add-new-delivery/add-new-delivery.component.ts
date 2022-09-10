@@ -38,6 +38,8 @@ export class AddNewDeliveryComponent implements OnInit {
     this.createParcelForm = this.fb.group({
       sender_details: [null, [Validators.required]],
       receiver_details: [null, [Validators.required]],
+      pick_up: [null, [Validators.required]],
+      destination: [null, [Validators.required]],
       parcel_id: [null, [Validators.required]],
       description: [null, [Validators.required]],
       weight: [null, [Validators.required]],

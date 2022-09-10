@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ParcelInterface } from '../Interfaces/interfaces';
+import { ParcelInterface, UpdateResponseInterface } from '../Interfaces/interfaces';
 import { DeleteParcel } from '../Modules/admin/AdminStates/parcel.action';
 
 @Injectable({
@@ -29,6 +29,11 @@ export class AdminService {
   }
   deleteParcel(id:number):Observable<{message:string}>{
     return this.http.delete<{message:string}>(`${this.baseUrl}/${id}`)
+  }
+  updateParcel(parcel:ParcelInterface):Observable<UpdateResponseInterface>{
+    console.log(parcel);
+    
+    return this.http.patch<UpdateResponseInterface>(`${this.baseUrl}/${parcel.id?parcel.id:''}`,parcel)
   }
 
 }

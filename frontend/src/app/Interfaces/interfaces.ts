@@ -3,8 +3,8 @@ export interface ParcelInterface{
     user_id?:string
     sender_details:string
     receiver_details:string
-    pick_up?:string
-    destination?:string
+    pick_up:string
+    destination:string
     parcel_id:string
     description:string
     weight:string
@@ -27,4 +27,7 @@ export interface SignupInterface{
     message:string
     
 
+}
+export interface UpdateResponseInterface{
+    message:string
 }

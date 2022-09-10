@@ -1,46 +1,43 @@
 <div class="main">
-    <form class="newParcelForm">
+    <form class="newParcelForm" [formGroup]="updateParcelForm"  (ngSubmit)="onUpdate()">
         <div class="formControl">
             <label for="from">From:</label>
-            <select FormControlName="from">
-                <option value="email">user1@gmail</option>
-                <option value="email">user1@gmail</option>
+            <select formControlName="sender_details">
+                <option value="user1@gmail">user1@gmail</option>
+                <option value="user2@gmail">user2@gmail</option>
             </select>
         </div>
-        <div class="receiverDetails">
+        <div class="formControl">
             <label for="to">To:</label>
-            <input type="text" FormControlName="to" placeholder="name" >
-            <input type="text" placeholder="contact" FormControlName="contact">
-            <select FormControlName="email">
-                <option value="email">user1@gmail</option>
-                <option value="email">user1@gmail</option>
+            
+            <select formControlName="receiver_details">
+                <option value="user1@gmail">user1@gmail</option>
+                <option value="user2@gmail">user2@gmail</option>
             </select>
 
         </div>
-        <div class="formControl">
-            <label for="location">Location:</label>
-            <input type="text" >
-        </div>
+       
         <div class="formControl">
             <label for="id">Parcel Id:</label>
-            <input type="text" >
+            <input type="text"  formControlName="parcel_id">
         </div>
         <div class="formControl">
             <label for="description">Description:</label>
-            <input type="text" >
+            <input type="text"  formControlName="description">
         </div>
         <div class="formControl">
             <label for="weight">Weight:</label>
-            <input type="text" >
+            <input type="text" formControlName="weight" >
         </div>
-        <div class="formControl">
+        <div class="formControl"> 
             <label for="status">Status:</label>
-            <select>
+            <select formControlName="status">
                 <option value="dispatched">Dispatched</option>
                 <option value="delivered">Delivered</option>
             </select>
         </div>
-        <button type="submit">UPDATE PARCEL</button>
+        <button type="submit" >UPDATE PARCEL</button>
+
 
     </form>
 </div>
