@@ -11,7 +11,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { PaginationComponent } from './pagination/pagination.component';
+
+import { AppBackgroundDirective } from 'src/app/Directives/app-background.directive';
 
 
 @NgModule({
@@ -25,11 +26,14 @@ import { PaginationComponent } from './pagination/pagination.component';
     HomepageComponent,
     NavbarComponent,
     FooterComponent,
-    PaginationComponent
+   
+    AppBackgroundDirective
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+   
+    
   ],
   exports:[
     HomeComponent,
