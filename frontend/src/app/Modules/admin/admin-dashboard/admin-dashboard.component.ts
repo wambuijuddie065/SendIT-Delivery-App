@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AdminDashboardComponent implements OnInit {
   // parcels$!: Observable<ParcelInterface[]>
   parcels$ = this.store.pipe(select(fromParcel.getParcels));
+  page:number=1
 
   constructor(
     private store: Store<fromParcel.AppState>,

@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { parcelReducer } from '../admin/AdminStates/parcel.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ParcelEffect } from '../admin/AdminStates/parcel.effects';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ParcelEffect } from '../admin/AdminStates/parcel.effects';
     UserRoutingModule,
     StoreModule.forFeature("parcels",parcelReducer),
     EffectsModule.forFeature([ParcelEffect]),
+    NgxPaginationModule
   ]
 })
 export class UserModule { }

@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import{parcelReducer} from './AdminStates/parcel.reducer'
 import { ParcelEffect } from './AdminStates/parcel.effects';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -32,6 +33,7 @@ import { ParcelEffect } from './AdminStates/parcel.effects';
     FormsModule,
     StoreModule.forFeature("parcels",parcelReducer),
     EffectsModule.forFeature([ParcelEffect]),
+    NgxPaginationModule
 
   ]
 })
