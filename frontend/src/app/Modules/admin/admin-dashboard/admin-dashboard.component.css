@@ -22,3 +22,6 @@
     padding: 5px;
     margin-left: 20px ;
 }
+.page{
+    align-self: baseline;
+}

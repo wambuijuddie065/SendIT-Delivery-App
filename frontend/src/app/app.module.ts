@@ -10,12 +10,15 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { SharedModule } from './Modules/shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
+import { AppBackgroundDirective } from './directives/app-background.directive';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppBackgroundDirective,
     
   ],
   imports: [
@@ -25,7 +28,8 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument(),
     HttpClientModule,
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

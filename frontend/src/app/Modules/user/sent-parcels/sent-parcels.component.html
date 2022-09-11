@@ -1,7 +1,7 @@
 <div class="main" *ngIf="parcels$ | async as parcels">
     <p>jojo</p>
     <div *ngIf="parcels.length ; else noParcels" class="parcelsContainer">
-        <div *ngFor="let parcel of parcels,let i=index" class="aParcel">
+        <div *ngFor="let parcel of parcels |  paginate:{itemsPerPage:4,currentPage:page} ,let i=index" class="aParcel">
             <p>jojo</p>
             <p>From:{{parcel.sender_details}}</p>
             <p>To:{{parcel.receiver_details}}</p>
@@ -13,6 +13,7 @@
             <button routerLink="/user/view" class="viewBtn">VIEW</button>
                
         </div>
+        <pagination-controls class="page" (pageChange)="page =$event"></pagination-controls>
        
     </div>
    
