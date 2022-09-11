@@ -1,3 +1,57 @@
 {
-  "parcels": []
+  "parcels": [
+    {
+      "sender_details": "user1@gmail",
+      "receiver_details": "user2@gmail",
+      "pick_up": "kjh",
+      "destination": "lkjn",
+      "parcel_id": "lkjn",
+      "description": "lkmn",
+      "weight": "0987",
+      "status": "dispatched",
+      "id": 1
+    },
+    {
+      "sender_details": "jojo@gmail.com",
+      "receiver_details": "user1@gmail.com",
+      "pick_up": "Karuga",
+      "destination": "Cherika",
+      "parcel_id": "1222",
+      "description": "for user 1",
+      "weight": "10kg",
+      "status": "dispatched",
+      "id": 2
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "password": "@Admin12345678",
+      "contact": "0712345678"
+    },
+    {
+      "name": "jojo siwa",
+      "email": "jojo@gmail.com",
+      "contact": "070000000",
+      "password": "123456789",
+      "id": 2
+    },
+    {
+      "name": "user1",
+      "email": "user1@gmail.com",
+      "contact": "071111111111",
+      "password": "12345678",
+      "id": 3
+    },
+    {
+      "name": "user2",
+      "email": "user2@gmail.com",
+      "contact": "07222222222",
+      "password": "12345678",
+      "id": 4
+    }
+  ]
 }

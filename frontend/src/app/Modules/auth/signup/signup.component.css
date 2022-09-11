@@ -1,13 +1,13 @@
 .main{
     background-color: #06062C;
-    height: 700px;
+    height: 800px;
 }
 .container{
     border: solid 2px #06062C;
-    height: 400px;
+    height: 500px;
     width: 400px;
     padding: 20px;
-    margin: 30px auto;
+    margin: 0px auto;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

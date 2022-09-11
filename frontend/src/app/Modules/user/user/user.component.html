@@ -26,8 +26,8 @@
         </div>
         <div class="bottomRight">
             <div class="parcelCategory">
-                <button routerLink="/user/sent-parcels">Sent Parcels</button>
-                <button routerLink="/user/received-parcels">Received Parcels</button>
+                <button (click)="sentParcels()">Sent Parcels</button>
+                <button  (click)=" receivedParcels()">Received Parcels</button>
             </div>
             <router-outlet></router-outlet>
         </div>

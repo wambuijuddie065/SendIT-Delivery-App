@@ -1,18 +1,20 @@
 <div class="main">
     <form class="newParcelForm" (ngSubmit)="onAdd()" [formGroup]="createParcelForm">
-        <div class="formControl">
+        <div class="formControl"  *ngIf="clients$ | async as clients">
             <label for="from">From:</label>
             <select formControlName="sender_details">
-                <option value="user1@gmail">user1@gmail</option>
-                <option value="user2@gmail">user2@gmail</option>
+                <option value="select">select sender</option>
+                <option value="{{ client.email }}"
+                *ngFor="let client of clients">{{client.email}}</option>
             </select>
         </div>
         <div class="formControl">
             <label for="to">To:</label>
             
-            <select formControlName="receiver_details">
-                <option value="user1@gmail">user1@gmail</option>
-                <option value="user2@gmail">user2@gmail</option>
+            <select formControlName="receiver_details"  *ngIf="clients$ | async as clients">
+                <option value="select">select receiver</option>
+                <option value="{{ client.email }}"
+                *ngFor="let client of clients">{{client.email}}</option>
             </select>
 
         </div>

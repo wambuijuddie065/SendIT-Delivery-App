@@ -6,10 +6,10 @@
         <form class="loginForm" #loginForm="ngForm" (ngSubmit)="onLogin()" >
             
             
-            <input type="text" placeholder="Email"  [ngModelOptions]="{standalone:true}"  name="email" ngModel required email="">
+            <input type="text" placeholder="Email"  name="email" ngModel required >
             
-            <input type="password" placeholder="Password" [ngModelOptions]="{standalone:true}"  name="password" ngModel required="">
-            <button type="submit"> LOGIN</button>
+            <input type="password" placeholder="Password"  name="password" ngModel required>
+            <button type="submit" > LOGIN</button>
         </form>
         <p class="new">New member? <a href="" routerLink="/auth/signup">REGISTER</a></p>
     
