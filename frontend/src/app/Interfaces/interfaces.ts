@@ -14,15 +14,19 @@ export interface ParcelInterface{
 export interface LoginInterface{
     email:string
     password:string
-    error:string
-    message:string
+    error?:string
+    message?:string
     
 
 }
+
 export interface SignupInterface{
+    id?:number
     name:string
     email:string
+    contact:string
     password:string
+
     error:string
     message:string
     

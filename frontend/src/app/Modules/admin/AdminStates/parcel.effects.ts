@@ -5,12 +5,13 @@ import {  Actions, ofType, createEffect } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { map, mergeMap, catchError, concatMap } from 'rxjs/operators';
 import { AdminService } from 'src/app/Services/admin.service';
+import { SignupService } from 'src/app/Services/signup.service';
 import { Action } from '@ngrx/store';
 import * as ParcelActions from '../AdminStates/parcel.action'
 
 @Injectable()
 export class ParcelEffect {
-  constructor(private actions$: Actions, private adminService: AdminService) {}
+  constructor(private actions$: Actions, private adminService: AdminService,private signupService:SignupService) {}
    loadParcel=createEffect(()=>{
     return this.actions$.pipe(
       ofType(ParcelActions.LoadParcels),
@@ -48,5 +49,33 @@ export class ParcelEffect {
       ))
     )
    })
+   addClient = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ParcelActions.RegisterClient),
+      mergeMap((action) =>
+        this.signupService.signUp(action.newClient).pipe(
+          map((res) =>
+            ParcelActions.RegisterClientSuccess({ addClientMessage: res.message })
+          ),
+          catchError((error) =>
+            of(ParcelActions.RegisterClientFailure({ error: error }))
+          )
+        )
+      )
+    );
+  });
+  loadClient = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ParcelActions.LoadClients),
+      concatMap(() =>
+        this.signupService.getclients().pipe(
+          map((clients) => ParcelActions.LoadClientsSuccess({ clients })),
+          catchError((error) =>
+            of(ParcelActions.LoadClientsFailure({ error: error.message }))
+          )
+        )
+      )
+    );
+  });
  
 }

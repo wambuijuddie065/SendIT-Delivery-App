@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ParcelInterface } from 'src/app/Interfaces/interfaces';
 import { AdminService } from 'src/app/Services/admin.service';
-import * as ParcelActions from '../AdminStates/parcel.action'
-import { ParcelState } from '../AdminStates/parcel.reducer';
+import * as ParcelActions from '../AdminStates/parcel.action';
+import { getClients, ParcelState } from '../AdminStates/parcel.reducer';
 
 @Component({
   selector: 'app-add-new-delivery',
@@ -18,26 +18,29 @@ import { ParcelState } from '../AdminStates/parcel.reducer';
   styleUrls: ['./add-new-delivery.component.css'],
 })
 export class AddNewDeliveryComponent implements OnInit {
- 
+  sender_details!: string;
+  receiver_details!: string;
+  pick_up!: string;
+  destination!: string;
+  parcel_id!: string;
+  description!: string;
+  weight!: string;
 
-  // from!: string;
-  // to!: string;
-  // email!: string;
-  // contact!: string;
-  // delivery!: string;
-  // parcel_id!: string;
-  // description!: string;
-  // weight!: string;
+  status!: string;
+  clients$ = this.store.select(getClients)
 
-  // status!: string;
-
-  constructor(private router:Router ,private adminService: AdminService, private fb: FormBuilder,private store:Store<ParcelState>) {}
+  constructor(
+    private router: Router,
+    private adminService: AdminService,
+    private fb: FormBuilder,
+    private store: Store<ParcelState>
+  ) {}
   createParcelForm!: FormGroup;
 
   ngOnInit(): void {
     this.createParcelForm = this.fb.group({
-      sender_details: [null, [Validators.required]],
-      receiver_details: [null, [Validators.required]],
+      sender_details: ['select', [Validators.required]],
+      receiver_details: ['select', [Validators.required]],
       pick_up: [null, [Validators.required]],
       destination: [null, [Validators.required]],
       parcel_id: [null, [Validators.required]],
@@ -45,14 +48,17 @@ export class AddNewDeliveryComponent implements OnInit {
       weight: [null, [Validators.required]],
       status: [null, [Validators.required]],
     });
+    this.getClientEmail()
   }
   onAdd() {
     const newParcel = this.createParcelForm.value;
 
-    this.store.dispatch(ParcelActions.AddParcel({newParcel}))
-    this.store.dispatch(ParcelActions.LoadParcels())
-    this.createParcelForm.reset()
-    this.router.navigate(['/admin/dashboard'])
-
+    this.store.dispatch(ParcelActions.AddParcel({ newParcel }));
+    this.store.dispatch(ParcelActions.LoadParcels());
+    this.createParcelForm.reset();
+    this.router.navigate(['/admin/dashboard']);
+  }
+  getClientEmail(){
+    this.store.dispatch(ParcelActions.LoadClients())
   }
 }

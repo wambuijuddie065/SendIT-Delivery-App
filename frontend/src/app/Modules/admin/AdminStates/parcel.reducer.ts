@@ -1,6 +1,6 @@
 
 import * as parcelActions from "./parcel.action"
-import { ParcelInterface } from "src/app/Interfaces/interfaces"
+import { ParcelInterface, SignupInterface } from "src/app/Interfaces/interfaces"
 import * as fromRoot from "../../../State/app-state"
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store"
 import { Actions } from "@ngrx/effects"
@@ -14,6 +14,9 @@ export interface ParcelState{
     deleteParcelMessage:string
     parcelError:string
     error:string
+    addClientmessage:string
+    clients:SignupInterface[]
+    clientError:string
     
 
 }
@@ -29,7 +32,10 @@ export const initialState:ParcelState= {
     deleteParcelMessage:"",
     parcelError:"",
    
-    error:""}
+    error:"",
+    addClientmessage:"",
+    clients:[],
+    clientError:""}
 
 
     const getParcelFeatureState=createFeatureSelector<ParcelState>(
@@ -52,6 +58,10 @@ export const initialState:ParcelState= {
         getParcelFeatureState,
         (state:ParcelState)=>state.error
     )
+    export const getClients = createSelector(
+        getParcelFeatureState,
+        (state) => state.clients
+      );
 
 
 
@@ -84,6 +94,18 @@ export const parcelReducer=createReducer(initialState,
     on(parcelActions.UpdateParcelFail,(state,action):ParcelState=>{
         return {...state,error:action.error}
     }),
+    on(parcelActions.RegisterClientSuccess,(state,action):ParcelState=>{
+        return{...state, addClientmessage:action.addClientMessage}
+    }),on(parcelActions.RegisterClientFailure,(state,action):ParcelState=>{
+        return{...state, error:action.error}
+    
+    }),
+    on(parcelActions.LoadClientsSuccess, (state, action): ParcelState => {
+      return { ...state, clients: action.clients};
+    }),
+    on(parcelActions.LoadClientsFailure, (state, action): ParcelState => {
+      return { ...state, clientError: action.error };
+    })
     
     )
 

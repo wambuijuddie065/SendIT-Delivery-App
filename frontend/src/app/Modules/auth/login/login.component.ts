@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthGuardService } from 'src/app/Guards/auth-guard.service';
+
+import { LoginInterface } from 'src/app/Interfaces/interfaces';
+import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,30 +13,45 @@ import { AuthGuardService } from 'src/app/Guards/auth-guard.service';
 export class LoginComponent implements OnInit {
   email!:string
   password!:string
+  @ViewChild('loginForm') loginForm!: NgForm
 
-  constructor(private router:Router,private authGuard:AuthGuardService) { }
+
+  constructor(private router:Router,private loginService:LoginService) {
+    localStorage.setItem("email",'admin@gmail.com')
+    localStorage.setItem("password",'@Admin254')
+   }
 
   ngOnInit(): void {
   }
+
   onLogin(){
 
-    this.router.navigate(['/admin/dashboard'])
-    this.authGuard.login()
-      
-    // if(this.email !== 'admin@gmail.com' && this.password !== '@Admin254' ){
-    //   this.router.navigate(['/user/sent-parcels'])
-    //   this.authGuard.login()
-      
-    // }
-    // else{
-    //   this.router.navigate(['/admin/dashboard'])
-      
-    //   this.authGuard.login()
 
-    // }
+    const token = localStorage.setItem("token", 'zxdcfgvhbjnmk897654@@@33#')
+
+    let email = localStorage.getItem("email")
+    let password = localStorage.getItem("password")
+
+    const user: LoginInterface = this.loginForm.value
+    console.log(user);
+    
+
+    if(user.email === email || user.password === password){
+      this.router.navigate(['/admin/dashboard'])
+      
+    }else{
+      this.router.navigate(['/user/sent-parcels'])
+      
+     
+
+    }
+    
+  }
+  
+      
+  
     
     
     
   }
 
-}
