@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ParcelInterface, UpdateResponseInterface } from '../Interfaces/interfaces';
 import { DeleteParcel } from '../Modules/admin/AdminStates/parcel.action';
 
@@ -11,6 +11,11 @@ import { DeleteParcel } from '../Modules/admin/AdminStates/parcel.action';
 export class AdminService {
 
   baseUrl:string="http://localhost:3000/parcels"
+  private subject=new Subject<string>()
+  search$=this.subject.asObservable()
+  search(txt:string){
+    this.subject.next(txt)
+  }
   
   
   constructor(private http :HttpClient) { }

@@ -13,6 +13,9 @@ import { StoreModule } from '@ngrx/store';
 import{parcelReducer} from './AdminStates/parcel.reducer'
 import { ParcelEffect } from './AdminStates/parcel.effects';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchPipe } from 'src/app/Pipes/search.pipe';
+import { DeliveredPipe } from 'src/app/Pipes/delivered.pipe';
+import { DispatchedPipe } from 'src/app/Pipes/dispatched.pipe';
 
 
 
@@ -23,7 +26,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddNewDeliveryComponent,
     AdminDashboardComponent,
     ViewParcelComponent,
-    UpdateStatusComponent
+    UpdateStatusComponent,
+    SearchPipe,
+    DeliveredPipe,
+    DispatchedPipe
     
   ],
   imports: [

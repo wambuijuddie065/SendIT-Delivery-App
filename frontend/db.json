@@ -19,7 +19,7 @@
       "parcel_id": "1222",
       "description": "for user 1",
       "weight": "10kg",
-      "status": "dispatched",
+      "status": "delivered",
       "id": 2
     },
     {
@@ -46,14 +46,14 @@
     },
     {
       "sender_details": "admin@gmail.com",
-      "receiver_details": "select",
-      "pick_up": null,
-      "destination": null,
-      "parcel_id": null,
-      "description": null,
-      "weight": null,
-      "status": null,
-      "id": 5
+      "receiver_details": "admin@gmail.com",
+      "pick_up": "lkjhg",
+      "destination": "kjnbvc",
+      "parcel_id": ",mnbv",
+      "description": "kjhgfc",
+      "weight": "lkjnhbv",
+      "status": "dispatched",
+      "id": 6
     }
   ],
   "clients": [

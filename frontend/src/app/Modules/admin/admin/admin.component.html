@@ -17,7 +17,7 @@
     <div class="right">
         <div class="topRight">
             <div class="search">
-                <input type="search" placeholder="search..." >
+                <input type="search" placeholder="search..." [(ngModel)]="searchText" (input)="onChange()">
             </div>
             <div class="profile">
                 <img src="../../../../assets/user-solid.svg" alt="">
