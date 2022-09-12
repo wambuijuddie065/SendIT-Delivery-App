@@ -16,6 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from 'src/app/Pipes/search.pipe';
 import { DeliveredPipe } from 'src/app/Pipes/delivered.pipe';
 import { DispatchedPipe } from 'src/app/Pipes/dispatched.pipe';
+import { DispatchedComponent } from './dispatched/dispatched.component';
 
 
 
@@ -29,7 +30,8 @@ import { DispatchedPipe } from 'src/app/Pipes/dispatched.pipe';
     UpdateStatusComponent,
     SearchPipe,
     DeliveredPipe,
-    DispatchedPipe
+    DispatchedPipe,
+    DispatchedComponent
     
   ],
   imports: [

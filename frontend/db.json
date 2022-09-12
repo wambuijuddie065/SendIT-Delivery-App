@@ -1,68 +1,12 @@
 {
-  "parcels": [
-    {
-      "sender_details": "user1@gmail",
-      "receiver_details": "user2@gmail",
-      "pick_up": "kjh",
-      "destination": "lkjn",
-      "parcel_id": "lkjn",
-      "description": "lkmn",
-      "weight": "0987",
-      "status": "dispatched",
-      "id": 1
-    },
-    {
-      "sender_details": "jojo@gmail.com",
-      "receiver_details": "user1@gmail.com",
-      "pick_up": "Karuga",
-      "destination": "Cherika",
-      "parcel_id": "1222",
-      "description": "for user 1",
-      "weight": "10kg",
-      "status": "delivered",
-      "id": 2
-    },
-    {
-      "sender_details": "admin@gmail.com",
-      "receiver_details": "admin@gmail.com",
-      "pick_up": ",mnb",
-      "destination": ";lkmjnb",
-      "parcel_id": ";lkjmnb",
-      "description": ".,mnb",
-      "weight": "';lkmjnb",
-      "status": "dispatched",
-      "id": 3
-    },
-    {
-      "sender_details": "user2@gmail.com",
-      "receiver_details": "jojo@gmail.com",
-      "pick_up": ".,mnb ",
-      "destination": "/.,mn",
-      "parcel_id": ";l,mnb",
-      "description": "l,mn",
-      "weight": ".l,mnb",
-      "status": "dispatched",
-      "id": 4
-    },
-    {
-      "sender_details": "admin@gmail.com",
-      "receiver_details": "admin@gmail.com",
-      "pick_up": "lkjhg",
-      "destination": "kjnbvc",
-      "parcel_id": ",mnbv",
-      "description": "kjhgfc",
-      "weight": "lkjnhbv",
-      "status": "dispatched",
-      "id": 6
-    }
-  ],
+  "parcels": [],
   "clients": [
     {
       "id": 1,
       "name": "admin",
       "email": "admin@gmail.com",
       "role": "admin",
-      "password": "@Admin12345678",
+      "password": "@Admin254",
       "contact": "0712345678"
     },
     {

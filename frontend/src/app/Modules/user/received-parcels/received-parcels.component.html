@@ -1,12 +1,13 @@
 <div class="main">
     <div *ngIf="parcelsArr.length;else noParcels" class="parcelsContainer">
         <div *ngFor="let parcel of parcelsArr,let i=index" class="aParcel">
-            <p></p>
-            <p></p>
-            <p></p> 
-            <p></p>
-            <p></p>
-            <p><i></i></p>
+            <p>From:user@gmail.com</p>
+           <p> Pick-up:Nyeri</p> 
+           <p> Destination:Nakuru</p> 
+            <p>ParcelId:789987</p>
+            <p>Fragile</p>
+            <p><i>delivered</i></p>
+            
             <button routerLink="/user/view" class="viewBtn">VIEW</button>
                
         </div>

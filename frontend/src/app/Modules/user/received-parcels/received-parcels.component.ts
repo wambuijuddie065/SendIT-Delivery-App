@@ -7,7 +7,21 @@ import { ParcelInterface } from 'src/app/Interfaces/interfaces';
   styleUrls: ['./received-parcels.component.css']
 })
 export class ReceivedParcelsComponent implements OnInit {
-  parcelsArr:ParcelInterface[]=[]
+  parcelsArr:ParcelInterface[]=[{
+    sender_details:"",
+    receiver_details:"",
+    pick_up:"",
+    destination:"",
+    parcel_id:"",
+    description:"",
+    weight:"",
+    
+    status:"",
+  }
+
+   
+  
+  ]
 
 
   constructor() { }

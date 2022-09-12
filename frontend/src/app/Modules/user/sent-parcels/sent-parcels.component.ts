@@ -16,6 +16,7 @@ export class SentParcelsComponent implements OnInit {
   sender_details!:string
   receiver_details!:string
   page:number=1
+  parcels:ParcelInterface[]=[]
 
   constructor(private router:Router,private route:ActivatedRoute,private store:Store<ParcelState>) { }
 

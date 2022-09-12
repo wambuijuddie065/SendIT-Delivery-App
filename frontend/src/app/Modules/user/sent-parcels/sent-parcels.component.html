@@ -1,8 +1,9 @@
 <div class="main" *ngIf="parcels$ | async as parcels">
-    <p>jojo</p>
+   
     <div *ngIf="parcels.length ; else noParcels" class="parcelsContainer">
         <div *ngFor="let parcel of parcels |  paginate:{itemsPerPage:4,currentPage:page} ,let i=index" class="aParcel">
-            <p>jojo</p>
+        
+            
             <p>From:{{parcel.sender_details}}</p>
             <p>To:{{parcel.receiver_details}}</p>
            <p> Pick-up:{{parcel.pick_up}}</p> 
@@ -20,5 +21,5 @@
 </div>
 
 <ng-template #noParcels>
-    <p>No parcels available!!</p>
+    <p>No sent parcels available!!</p>
 </ng-template>

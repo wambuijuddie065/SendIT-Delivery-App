@@ -25,5 +25,8 @@ export class AdminComponent implements OnInit {
 
   this.adminService.search(this.searchText)
   }
+  showDispatchedParcels(){
+    this.router.navigate(['/admin/dispatched'])
+  }
 
 }
