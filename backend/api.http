@@ -24,3 +24,22 @@ Content-Type: application/json
 ###
 
 GET http://localhost:5000/clients
+
+//parcels endpoints
+
+
+###
+
+POST http://localhost:5000/parcels/add
+Content-Type: application/json
+
+{
+    "sender_details":"jojo@gmail.com",
+    "receiver_details":"receiver@gmail.com",
+    "pick_up":"Nyeri",
+    "destination":"Nakuru",
+    "description":"Fragile",
+    "weight":20,
+    "price":200,
+    "status":"dispatched"
+}

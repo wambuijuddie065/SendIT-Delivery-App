@@ -1,8 +1,9 @@
 import {Router} from "express"
+import { addParcel } from "../Controllers/ParcelControllers"
 
 
 const routerP=Router()
-routerP.post('')
+routerP.post('/add',addParcel)
 routerP.get('')
 routerP.get('/:id')
 routerP.patch('')

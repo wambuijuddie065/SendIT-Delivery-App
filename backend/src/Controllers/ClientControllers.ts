@@ -37,8 +37,8 @@ export const registerClient=async (req:ExtendedRequest,res:Response)=>{
         password=await bcrypt.hash(password,10)
        
         db.exec('insertClient',{client_id,name,email,contact,password})
-        res.json({message:"Client added successfully"})
-        // res.status(201).json({message:"Client added successfully"})
+        // res.json({message:"Client added successfully"})
+        res.status(201).json({message:"Client added successfully"})
         
     } catch(error:any){
         res.json({error})

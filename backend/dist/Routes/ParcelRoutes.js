@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const ParcelControllers_1 = require("../Controllers/ParcelControllers");
 const routerP = (0, express_1.Router)();
-routerP.post('');
+routerP.post('/add', ParcelControllers_1.addParcel);
 routerP.get('');
 routerP.get('/:id');
 routerP.patch('');

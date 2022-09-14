@@ -43,8 +43,8 @@ const registerClient = (req, res) => __awaiter(void 0, void 0, void 0, function*
         const client_id = id;
         password = yield bcrypt_1.default.hash(password, 10);
         db.exec('insertClient', { client_id, name, email, contact, password });
-        res.json({ message: "Client added successfully" });
-        // res.status(201).json({message:"Client added successfully"})
+        // res.json({message:"Client added successfully"})
+        res.status(201).json({ message: "Client added successfully" });
     }
     catch (error) {
         res.json({ error });
