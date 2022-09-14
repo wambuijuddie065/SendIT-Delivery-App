@@ -1,4 +1,4 @@
-import { Request, Response } from "express"
+import { Request, RequestHandler, Response } from "express"
 import {v4 as uid}  from 'uuid'
 import Connection from "../DatabaseHelpers/db"
 const db=new Connection()
@@ -35,5 +35,54 @@ export const addParcel=async(req:ExtendedRequest,res:Response)=>{
         res.status(201).json({message:"Parcel Added Successfully!"})
     } catch (error:any) {
         res.json({error})
+    }
+}
+
+export const getParcels:RequestHandler=async(req,res)=>{
+    try {
+        const parcels=(await db.exec('getParcels'))
+        res.json(parcels.recordset)
+        
+    } catch(error:any){
+        res.json({error})
+        
+    }
+}
+export const getParcel:RequestHandler<{parcel_id:string}>=async(req,res)=>{
+    try {
+        const parcel_id=req.params.parcel_id
+        const {recordset}=await db.exec('getParcel',{parcel_id})
+        if(!recordset[0]){
+            res.json({message:"Parcel Not Found!"})
+        }
+        else{
+            res.json(recordset)
+        }
+        
+    } catch (error) {
+        res.json({error})
+        
+    }
+}
+export const updateDelivered:RequestHandler<{parcel_id:string}>=async(req,res)=>{
+    try {
+        let parcel_id=req.params.parcel_id
+        const {status,is_delivered} = req.body as {
+           
+            status:string,
+            is_delivered:string
+          }
+             const {recordset} =await db.exec('getParcel',{parcel_id})
+            if(!recordset[0]){
+               res.json({ message: 'Parcel Not Found' })
+            }else{
+               await  db.exec('insertUpdateParcel',{status,is_delivered})
+                res.json({message:'Parcel Updated'})
+            }
+        
+        
+    } catch (error) {
+        res.json({error})
+        
     }
 }

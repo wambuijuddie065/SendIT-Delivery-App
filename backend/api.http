@@ -43,3 +43,22 @@ Content-Type: application/json
     "price":200,
     "status":"dispatched"
 }
+
+
+###
+
+GET http://localhost:5000/parcels
+
+###
+
+GET http://localhost:5000/parcels/100
+
+###
+
+PATCH http://localhost:5000/parcels/deliver/100
+Content-Type: application/json
+
+{
+    "status":"delivered",
+    "is_delivered":"1"
+}

@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addParcel = void 0;
+exports.updateDelivered = exports.getParcel = exports.getParcels = exports.addParcel = void 0;
 const uuid_1 = require("uuid");
 const db_1 = __importDefault(require("../DatabaseHelpers/db"));
 const db = new db_1.default();
@@ -30,3 +30,47 @@ const addParcel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.addParcel = addParcel;
+const getParcels = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const parcels = (yield db.exec('getParcels'));
+        res.json(parcels.recordset);
+    }
+    catch (error) {
+        res.json({ error });
+    }
+});
+exports.getParcels = getParcels;
+const getParcel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const parcel_id = req.params.parcel_id;
+        const { recordset } = yield db.exec('getParcel', { parcel_id });
+        if (!recordset[0]) {
+            res.json({ message: "Parcel Not Found!" });
+        }
+        else {
+            res.json(recordset);
+        }
+    }
+    catch (error) {
+        res.json({ error });
+    }
+});
+exports.getParcel = getParcel;
+const updateDelivered = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let parcel_id = req.params.parcel_id;
+        const { status, is_delivered } = req.body;
+        const { recordset } = yield db.exec('getParcel', { parcel_id });
+        if (!recordset[0]) {
+            res.json({ message: 'Parcel Not Found' });
+        }
+        else {
+            yield db.exec('insertUpdateParcel', { status, is_delivered });
+            res.json({ message: 'Parcel Updated' });
+        }
+    }
+    catch (error) {
+        res.json({ error });
+    }
+});
+exports.updateDelivered = updateDelivered;
