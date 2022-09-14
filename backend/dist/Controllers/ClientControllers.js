@@ -23,13 +23,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginClient = exports.registerClient = void 0;
+exports.getClients = exports.loginClient = exports.registerClient = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 const uuid_1 = require("uuid");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const db_1 = __importDefault(require("../DatabaseHelpers/db"));
-const ClientValidator_1 = require("../Helpers/ClientValidator");
+const ClientValidator_1 = require("../Validators/ClientValidator");
 const db = new db_1.default();
 dotenv_1.default.config();
 const registerClient = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -58,23 +58,23 @@ const loginClient = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         if (error) {
             res.json({ error: error.details[0].message });
         }
-        const user = (yield db.exec('getClient', { email })).recordset;
-        if (!user[0]) {
-            return res.json({ message: "User Not Found!" });
+        const client = (yield db.exec('getClient', { email })).recordset;
+        if (!client[0]) {
+            return res.json({ message: "client Not Found!" });
         }
         else {
-            const validPassword = yield bcrypt_1.default.compare(password, user[0].password);
+            const validPassword = yield bcrypt_1.default.compare(password, client[0].password);
             if (!validPassword) {
                 return res.json({ message: "Invalid Password!" });
             }
-            const payload = user.map((item) => {
+            const payload = client.map((item) => {
                 const { password } = item, rest = __rest(item, ["password"]);
                 return rest;
             });
             const token = jsonwebtoken_1.default.sign(payload[0], process.env.KEY, {
                 expiresIn: "3600000s"
             });
-            return res.json({ message: "User Logged In Successfully!", token });
+            return res.json({ message: "Client Logged In Successfully!", token, role: client[0].role });
         }
     }
     catch (error) {
@@ -82,3 +82,18 @@ const loginClient = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.loginClient = loginClient;
+// export const getDashboard=async(req:Extended,res:Response)=>{
+//     if(req.info){
+//         res.json({message:`Dear ${req.info.name} Welcome to the dashboard`})
+//     }
+// }
+const getClients = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const clients = (yield db.exec('getClients'));
+        res.json(clients.recordset);
+    }
+    catch (error) {
+        res.json({ error });
+    }
+});
+exports.getClients = getClients;

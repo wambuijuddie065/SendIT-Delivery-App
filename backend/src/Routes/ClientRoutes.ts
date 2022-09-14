@@ -1,13 +1,14 @@
 import {Router} from "express"
+import {  getClients, loginClient, registerClient } from "../Controllers/ClientControllers"
 
 
 const routerC=Router()
-routerC.post('/register')//register
-routerC.post('/login')//login
-routerC.get('/')//getusers
+routerC.post('/register',registerClient)//register
+routerC.post('/login',loginClient)//login
+routerC.get('/',getClients)//getusers
 routerC.get('/:id')//get user by id
-routerC.get('/dashboard')//navigate to dashboard
-routerC.get('/check')//check role
+// routerC.get('/dashboard',getDashboard)//navigate to dashboard
+
 routerC.patch('')
 
 

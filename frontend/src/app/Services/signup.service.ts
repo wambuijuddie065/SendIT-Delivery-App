@@ -7,13 +7,10 @@ import { SignupInterface } from '../Interfaces/interfaces';
   providedIn: 'root'
 })
 export class SignupService {
-  baseUrl="http://localhost:3000/clients"
+  baseUrl="http://localhost:5000/clients"
 
   constructor(private http:HttpClient) { }
-// signUp(user:SignupInterface):Observable<SignupInterface>{
-//   return this.http.post<SignupInterface>(`${this.baseUrl}`,user)
 
-// }
 signUp(client:SignupInterface):Observable<{message:string}>{
   return this.http.post<{message:string}>(`${this.baseUrl}`, client)
 }

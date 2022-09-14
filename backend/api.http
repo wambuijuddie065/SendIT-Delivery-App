@@ -1,0 +1,26 @@
+
+POST http://localhost:5000/clients/register
+Content-Type: application/json
+
+
+{
+    "name":"user1",
+    "email":"user1@gmail.com",
+    "contact":"0712345678",
+    "password":"@User1254"
+}
+
+###
+POST http://localhost:5000/clients/login
+Content-Type: application/json
+
+{
+    
+    "email":"user1@gmail.com",
+    "password":"@User1254"
+}
+
+
+###
+
+GET http://localhost:5000/clients

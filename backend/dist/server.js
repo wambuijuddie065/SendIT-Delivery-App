@@ -34,7 +34,7 @@ const app = (0, express_1.default)();
 app.use((0, express_1.json)());
 app.use((0, cors_1.default)());
 app.use('/parcels', ParcelRoutes_1.default);
-app.use('/parcels', ClientRoutes_1.default);
+app.use('/clients', ClientRoutes_1.default);
 app.use((err, req, res, next) => {
     res.json({ Error: err.message });
 });

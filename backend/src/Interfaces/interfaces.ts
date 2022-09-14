@@ -1,9 +1,10 @@
-export interface User{
-    id:string
-    name:string
+export interface Client{
+    client_id:string
+    name?:string
     email:string
-    contact:string
+    contact?:string
     password:string
+    role:string
 }
 
 
@@ -11,7 +12,7 @@ export interface User{
 export interface Data{
     client_id:string
     email:string
-    contar:string
+    contact:string
     name:string
     role:string
     iat:number
