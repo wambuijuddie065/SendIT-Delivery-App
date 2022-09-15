@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.softDeleteParcel = exports.updateDelivered = exports.getParcel = exports.getParcels = exports.addParcel = void 0;
+exports.getsenderParcels = exports.softDeleteParcel = exports.updateDelivered = exports.getParcel = exports.getParcels = exports.addParcel = void 0;
 const uuid_1 = require("uuid");
 const db_1 = __importDefault(require("../DatabaseHelpers/db"));
 const db = new db_1.default();
@@ -92,5 +92,15 @@ const softDeleteParcel = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.softDeleteParcel = softDeleteParcel;
-//get sender_parcel
-//get receiver_parcel
+//get sender_parcels
+const getsenderParcels = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const sender_details = req.params.sender_details;
+        const { recordset } = yield db.exec('getSenderParcels', { sender_details });
+    }
+    catch (error) {
+        res.json({ error });
+    }
+});
+exports.getsenderParcels = getsenderParcels;
+//get receiver_parcels

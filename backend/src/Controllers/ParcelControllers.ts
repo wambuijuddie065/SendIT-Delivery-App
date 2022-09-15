@@ -123,6 +123,19 @@ export const softDeleteParcel:RequestHandler<{parcel_id:string}>=async(req,res)=
 
 }
 
-//get sender_parcel
+//get sender_parcels
+export const getsenderParcels:RequestHandler<{sender_details:string}>=async(req,res)=>{
+try {
+const sender_details=req.params.sender_details
+const {recordset}=await db.exec('getSenderParcels',{sender_details})
 
-//get receiver_parcel
+    
+} catch (error) {
+res.json({error})
+    
+}
+
+}
+
+
+//get receiver_parcels

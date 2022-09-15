@@ -71,3 +71,8 @@ Content-Type: application/json
 
 ###
 PATCH http://localhost:5000/parcels/delete/100
+
+
+###
+
+# GET  http://localhost:5000/parcels/sender  
