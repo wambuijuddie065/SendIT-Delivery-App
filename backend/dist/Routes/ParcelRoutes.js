@@ -7,5 +7,5 @@ routerP.post('/add', ParcelControllers_1.addParcel);
 routerP.get('/', ParcelControllers_1.getParcels);
 routerP.get('/:parcel_id', ParcelControllers_1.getParcel);
 routerP.patch('/deliver/:parcel_id', ParcelControllers_1.updateDelivered);
-routerP.delete('');
+routerP.patch('/delete/:parcel_id', ParcelControllers_1.softDeleteParcel);
 exports.default = routerP;

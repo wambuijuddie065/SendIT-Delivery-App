@@ -70,7 +70,7 @@ export const loginClient=async(req:ExtendedRequest,res:Response)=>{
             const token=jwt.sign(payload[0],process.env.KEY as string,{
                 expiresIn:"3600000s"
             })
-            return res.json({message:"Client Logged In Successfully!",token, role:client[0].role})
+            return res.json({message:"Client Logged In Successfully!",token, role:client[0].role,name:client[0].name})
 
         }
         
@@ -97,4 +97,20 @@ export  const  getClients:RequestHandler=async(req,res)=>{
         
     }
 
+}
+export const getClientById:RequestHandler<{client_id:string}>=async(req,res)=>{
+    try {
+        const client_id=req.params.client_id
+        const {recordset}=await db.exec('getClientById',{client_id})
+        if(!recordset[0]){
+            res.json({message:"Client Not Found!"})
+        }
+        else{
+            res.json(recordset)
+        }
+        
+    } catch (error) {
+        res.json({error})
+        
+    }
 }

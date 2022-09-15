@@ -57,7 +57,7 @@ BEGIN
 UPDATE [ParcelsTable]
 SET
 status=@status,
-is_delivered=@is_delivered
+is_delivered='1'
+WHERE parcel_id=@parcel_id
 END
-
 END

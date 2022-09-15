@@ -23,7 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getClients = exports.loginClient = exports.registerClient = void 0;
+exports.getClientById = exports.getClients = exports.loginClient = exports.registerClient = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 const uuid_1 = require("uuid");
 const bcrypt_1 = __importDefault(require("bcrypt"));
@@ -74,7 +74,7 @@ const loginClient = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             const token = jsonwebtoken_1.default.sign(payload[0], process.env.KEY, {
                 expiresIn: "3600000s"
             });
-            return res.json({ message: "Client Logged In Successfully!", token, role: client[0].role });
+            return res.json({ message: "Client Logged In Successfully!", token, role: client[0].role, name: client[0].name });
         }
     }
     catch (error) {
@@ -97,3 +97,19 @@ const getClients = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.getClients = getClients;
+const getClientById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const client_id = req.params.client_id;
+        const { recordset } = yield db.exec('getClientById', { client_id });
+        if (!recordset[0]) {
+            res.json({ message: "Client Not Found!" });
+        }
+        else {
+            res.json(recordset);
+        }
+    }
+    catch (error) {
+        res.json({ error });
+    }
+});
+exports.getClientById = getClientById;

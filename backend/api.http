@@ -4,10 +4,10 @@ Content-Type: application/json
 
 
 {
-    "name":"user1",
-    "email":"user1@gmail.com",
+    "name":"user2",
+    "email":"user2@gmail.com",
     "contact":"0712345678",
-    "password":"@User1254"
+    "password":"@User2254"
 }
 
 ###
@@ -16,14 +16,20 @@ Content-Type: application/json
 
 {
     
-    "email":"user1@gmail.com",
-    "password":"@User1254"
+    "email":"user2@gmail.com",
+    "password":"@User2254"
 }
 
 
 ###
 
 GET http://localhost:5000/clients
+
+
+###
+
+GET http://localhost:5000/clients/d651f21b-0be4-4351-bbec-a6f5a504809c
+
 
 //parcels endpoints
 
@@ -34,8 +40,8 @@ POST http://localhost:5000/parcels/add
 Content-Type: application/json
 
 {
-    "sender_details":"jojo@gmail.com",
-    "receiver_details":"receiver@gmail.com",
+    "sender_details":"mimi@gmail.com",
+    "receiver_details":"wewe@gmail.com",
     "pick_up":"Nyeri",
     "destination":"Nakuru",
     "description":"Fragile",
@@ -55,10 +61,13 @@ GET http://localhost:5000/parcels/100
 
 ###
 
-PATCH http://localhost:5000/parcels/deliver/100
+PATCH http://localhost:5000/parcels/deliver/1f99b634-e9a2-40bc-8fc2-f7500da190ca
 Content-Type: application/json
 
 {
-    "status":"delivered",
-    "is_delivered":"1"
+    "status":"delivered"  
 }
+
+
+###
+PATCH http://localhost:5000/parcels/delete/100

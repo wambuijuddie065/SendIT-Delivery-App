@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateDelivered = exports.getParcel = exports.getParcels = exports.addParcel = void 0;
+exports.softDeleteParcel = exports.updateDelivered = exports.getParcel = exports.getParcels = exports.addParcel = void 0;
 const uuid_1 = require("uuid");
 const db_1 = __importDefault(require("../DatabaseHelpers/db"));
 const db = new db_1.default();
@@ -59,13 +59,13 @@ exports.getParcel = getParcel;
 const updateDelivered = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let parcel_id = req.params.parcel_id;
-        const { status, is_delivered } = req.body;
+        const { sender_details, receiver_details, pick_up, destination, description, weight, price, status, is_delivered } = req.body;
         const { recordset } = yield db.exec('getParcel', { parcel_id });
         if (!recordset[0]) {
             res.json({ message: 'Parcel Not Found' });
         }
         else {
-            yield db.exec('insertUpdateParcel', { status, is_delivered });
+            yield db.exec('insertUpdateParcel', { parcel_id, sender_details, receiver_details, pick_up, destination, description, weight, price, status, is_delivered });
             res.json({ message: 'Parcel Updated' });
         }
     }
@@ -74,3 +74,23 @@ const updateDelivered = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.updateDelivered = updateDelivered;
+const softDeleteParcel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let parcel_id = req.params.parcel_id;
+        const { is_cancelled } = req.body;
+        const { recordset } = yield db.exec('getParcel', { parcel_id });
+        if (!recordset[0]) {
+            res.json({ message: "Parcel Not Found" });
+        }
+        else {
+            yield db.exec('deleteParcel', { parcel_id });
+            res.json({ message: 'Parcel cancelled' });
+        }
+    }
+    catch (error) {
+        res.json({ error });
+    }
+});
+exports.softDeleteParcel = softDeleteParcel;
+//get sender_parcel
+//get receiver_parcel
