@@ -6,6 +6,8 @@ const routerP = (0, express_1.Router)();
 routerP.post('/add', ParcelControllers_1.addParcel);
 routerP.get('/', ParcelControllers_1.getParcels);
 routerP.get('/:parcel_id', ParcelControllers_1.getParcel);
+routerP.get('/:sender_details', ParcelControllers_1.getsenderParcels);
+routerP.get('/:parcel_id');
 routerP.patch('/deliver/:parcel_id', ParcelControllers_1.updateDelivered);
 routerP.patch('/delete/:parcel_id', ParcelControllers_1.softDeleteParcel);
 exports.default = routerP;
