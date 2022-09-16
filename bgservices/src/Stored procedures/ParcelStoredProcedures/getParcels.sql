@@ -1,0 +1,5 @@
+CREATE PROCEDURE getParcels
+AS
+BEGIN
+SELECT * FROM ParcelsTable
+END
