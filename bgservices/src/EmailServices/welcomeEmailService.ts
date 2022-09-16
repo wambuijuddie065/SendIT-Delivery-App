@@ -23,7 +23,7 @@ const sendWelcomeEmail=async()=>{
     
 
 const clients:ClientInterface[]=await (await db.exec('getNotWelcome')).recordset
-console.log(clients,"these are clients");
+
 
 
 
