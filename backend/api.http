@@ -4,10 +4,10 @@ Content-Type: application/json
 
 
 {
-    "name":"juslydy",
-    "email":"juslydyjulivia@gmail.com",
+    "name":"judy",
+    "email":"judywambui620@gmail.com",
     "contact":"0712345678",
-    "password":"@Juslydy254"
+    "password":"@Judy254"
 }
 
 ###
@@ -40,14 +40,14 @@ POST http://localhost:5000/parcels/add
 Content-Type: application/json
 
 {
-    "sender_details":"juslydyjulivia@gmail.com",
-    "receiver_details":"judynackson@gmail.com",
+    "sender_details":"judywambui620@gmail.com",
+    "receiver_details":"juslydyjulivia@gmail.com",
     "pick_up":"Nyeri",
     "destination":"Nakuru",
     "description":"Fragile",
     "weight":20,
     "price":200,
-    "status":"dispatched"
+    "status":"Dispatched"
 }
 
 ###
@@ -56,7 +56,7 @@ GET http://localhost:5000/parcels
 
 ###
 
-GET http://localhost:5000/parcels/100
+GET http://localhost:5000/parcels/6622b670-e529-4d42-aeb7-57dbe762b1fd
 
 ###
 

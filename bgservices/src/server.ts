@@ -3,6 +3,8 @@ import cron from "node-cron";
 import sendWelcomeEmail from "./EmailServices/welcomeEmailService";
 import senderParcelDeliveredEmail from "./EmailServices/senderDeliveredService"
 import receiverParcelDeliveredEmail from "./EmailServices/receiverDeliveredEmailService";
+import ParcelDispatchedEmail from "./EmailServices/Dispatched";
+
 
 
 const app = express();
@@ -14,11 +16,11 @@ const run = () => {
   cron.schedule("*/5 * * * * *", async () => {
     console.log("running in the background every 5 seconds")
     await sendWelcomeEmail()
-    await senderParcelDeliveredEmail()
-    await receiverParcelDeliveredEmail()
-    
-  });
-};
+   
+    await ParcelDispatchedEmail()
+  
+  })
+}
 run();
 
 app.listen(4003, () => {
