@@ -21,10 +21,10 @@ interface ParcelInterface{
     is_delivered:string
     is_cancelled:string
 }
-const receiverParcelDeliveredEmail=async()=>{
+const ParcelDeliveredEmail=async()=>{
     
-    const parcels: ParcelInterface[]= await (await db.exec('getReceiverUndeliveredParcels')).recordset
-    console.log("below these are receiver parcels",parcels);
+    const parcels: ParcelInterface[]= await (await db.exec('getUndeliveredParcels')).recordset
+
   for(let parcel of parcels){
       ejs.renderFile('Templates/delivered.ejs',{parcel_id:parcel.parcel_id,sender_details:parcel.sender_details,
         receiver_details:parcel.receiver_details,pick_up:parcel.pick_up,destination:parcel.destination,description:parcel.description,
@@ -34,22 +34,36 @@ const receiverParcelDeliveredEmail=async()=>{
               from:process.env.EMAIL,
               to:parcel.receiver_details,
               subject:'Parcel delivered successfully',
-              html:data,
-              attachments:[
-                  {
-                      filename:'sendIT.txt',
-                      content:`Your parcel has been successfully delivered by  : ${parcel.sender_details}`
-                  }
-              ]
+              html:data
           }
           try {
              
               
               await sendMail(mailOptions)
-              await db.exec('insertUpdateParcel',{parcel_id:parcel.parcel_id,sender_details:parcel.sender_details,
-                receiver_details:parcel.receiver_details,pick_up:parcel.pick_up,destination:parcel.destination,description:parcel.description,
-                weight:parcel.weight,price:parcel.price,status:parcel.status})
-              console.log('PARCEL DELIVERED SUCCESSFULLY');
+              await db.exec('Deliver',{parcel_id:parcel.parcel_id})
+              console.log('receiver parcel delivered');
+          } catch (error:any) {
+              console.log(error);
+              
+              
+          }
+      } )
+      ejs.renderFile('Templates/delivered.ejs',{parcel_id:parcel.parcel_id,sender_details:parcel.sender_details,
+        receiver_details:parcel.receiver_details,pick_up:parcel.pick_up,destination:parcel.destination,description:parcel.description,
+        weight:parcel.weight,price:parcel.price
+      },async(error,data)=>{
+          let mailOptions={
+              from:process.env.EMAIL,
+              to:parcel.sender_details,
+              subject:'Parcel delivered successfully',
+              html:data
+          }
+          try {
+             
+              
+              await sendMail(mailOptions)
+              await db.exec('Deliver',{parcel_id:parcel.parcel_id})
+              console.log('sender parcel delivered');
           } catch (error:any) {
               console.log(error);
               
@@ -60,4 +74,4 @@ const receiverParcelDeliveredEmail=async()=>{
   
 
 }
-export default receiverParcelDeliveredEmail
+export default ParcelDeliveredEmail

@@ -60,7 +60,7 @@ const ParcelDispatchedEmail=async()=>{
               attachments:[
                   {
                       filename:'sendIT.txt',
-                      content:`The parcel has been dispatched successfully. Please deliver it to  : ${parcel.receiver_details}`
+                      content:`The parcel has been dispatched successfully. Please deliver it to  : ${parcel.destination}`
                   }
               ]
           }
