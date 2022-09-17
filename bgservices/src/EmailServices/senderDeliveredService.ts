@@ -34,7 +34,7 @@ const senderParcelDeliveredEmail=async()=>{
           let mailOptions={
               from:process.env.EMAIL,
               to:parcel.sender_details,
-              subject:'Parcel delivered',
+              subject:'Parcel delivered successfully',
               html:data,
               attachments:[
                   {
@@ -47,7 +47,7 @@ const senderParcelDeliveredEmail=async()=>{
              
               
               await sendMail(mailOptions)
-              await db.exec('insertUpdateParcel',{parcel_id:parcel.parcel_id})
+              await db.exec('senderDeliveredParcel',{parcel_id:parcel.parcel_id})
               console.log('PARCEL DELIVERED SUCCESSFULLY');
           } catch (error:any) {
               console.log(error);
