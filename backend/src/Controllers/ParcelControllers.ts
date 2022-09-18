@@ -30,22 +30,22 @@ export const addParcel=async(req:ExtendedRequest,res:Response)=>{
         const id=uid()
         const{sender_details,receiver_details,pick_up,destination,description,weight,price,status}=req.body
         const parcel_id=id
-        // console.log(parcel_id);
+       
         
         db.exec('insertUpdateParcel',{ parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status})
-        res.status(201).json({message:"Parcel Added Successfully!"})
-    } catch (error:any) {
-        res.json({error})
+        res.status(201).send("Parcel Added Successfully!")
+    } catch (error) {
+        res.status(400).send("Failed To Add Parcel!")
     }
 }
 
 export const getParcels:RequestHandler=async(req,res)=>{
     try {
         const parcels=(await db.exec('getParcels'))
-        res.json(parcels.recordset)
+        res.status(200).json(parcels.recordset)
         
-    } catch(error:any){
-        res.json({error})
+    } catch(error){
+        res.status(404).send("Parcels Not Found!")
         
     }
 }
@@ -54,14 +54,14 @@ export const getParcel:RequestHandler<{parcel_id:string}>=async(req,res)=>{
         const parcel_id=req.params.parcel_id
         const {recordset}=await db.exec('getParcel',{parcel_id})
         if(!recordset[0]){
-            res.json({message:"Parcel Not Found!"})
+            res.status(404).send("Parcel Not Found!")
         }
         else{
-            res.json(recordset)
+            res.status(200).json(recordset)
         }
         
     } catch (error) {
-        res.json({error})
+        res.status(400).send("An Error Occurred!")
         
     }
 }
@@ -85,15 +85,15 @@ export const updateDelivered:RequestHandler<{parcel_id:string}>=async(req,res)=>
           }
              const {recordset} =await db.exec('getParcel',{parcel_id})
             if(!recordset[0]){
-               res.json({ message: 'Parcel Not Found' })
+                res.status(404).send("Parcel Not Found!")
             }else{
                await  db.exec('insertUpdateParcel',{parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status,is_delivered})
-                res.json({message:'Parcel Updated'})
+                res.status(200).json({message:'Parcel Updated'})
             }
         
         
     } catch (error) {
-        res.json({error})
+        res.status(400).send("An Error Occurred!")
         
     }
 }
@@ -110,16 +110,16 @@ export const softDeleteParcel:RequestHandler<{parcel_id:string}>=async(req,res)=
         
         
         if(!recordset[0]){
-            res.json({message:"Parcel Not Found"})
+            res.status(404).send("Parcel Not Found!")
         }else{
             await db.exec('deleteParcel',{parcel_id})
-            res.json({message:'Parcel cancelled'})
+            res.status(200).json({message:'Parcel Deleted Successfully!'})
 
         }
 
         
     } catch (error) {
-        res.json({error})
+        res.status(400).send("An Error Occurred!")
         
     }
 
@@ -132,15 +132,15 @@ const sender_details=req.params.sender_details
 const parcels=await db.exec('getSenderParcels',{sender_details})
 const {recordset}=parcels
 if (!parcels.recordset[0]) {
-    res.json({ message: "Parcel Not Found" });
+    res.status(404).send("Parcel Not Found!")
   } else {
-    res.json(recordset);
+    res.status(200).json(recordset);
    
   }
 
     
 } catch (error) {
-res.json({error})
+    res.status(400).send("An Error Occurred!")
     
 }
 
@@ -155,7 +155,7 @@ export const getreceiverParcels:RequestHandler<{receiver_details:string}>=async(
     const parcels=await db.exec('getReceiverParcels',{receiver_details})
     const {recordset}=parcels
     if (!parcels.recordset[0]) {
-        res.json({ message: "Parcel Not Found" });
+        res.status(404).send("Parcel Not Found!")
       } else {
         res.json(recordset);
        
@@ -163,7 +163,7 @@ export const getreceiverParcels:RequestHandler<{receiver_details:string}>=async(
     
         
     } catch (error) {
-    res.json({error})
+        res.status(400).send("An Error Occurred!")
         
     }
     
