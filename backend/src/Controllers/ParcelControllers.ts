@@ -101,6 +101,8 @@ export const updateDelivered:RequestHandler<{parcel_id:string}>=async(req,res)=>
 export const softDeleteParcel:RequestHandler<{parcel_id:string}>=async(req,res)=>{
     try {
         let parcel_id=req.params.parcel_id
+       
+        
         const {is_cancelled}=req.body as {
             is_cancelled:string
         }
@@ -127,7 +129,14 @@ export const softDeleteParcel:RequestHandler<{parcel_id:string}>=async(req,res)=
 export const getsenderParcels:RequestHandler<{sender_details:string}>=async(req,res)=>{
 try {
 const sender_details=req.params.sender_details
-const {recordset}=await db.exec('getSenderParcels',{sender_details})
+const parcels=await db.exec('getSenderParcels',{sender_details})
+const {recordset}=parcels
+if (!parcels.recordset[0]) {
+    res.json({ message: "Parcel Not Found" });
+  } else {
+    res.json(recordset);
+   
+  }
 
     
 } catch (error) {
@@ -139,3 +148,24 @@ res.json({error})
 
 
 //get receiver_parcels
+
+export const getreceiverParcels:RequestHandler<{receiver_details:string}>=async(req,res)=>{
+    try {
+    const receiver_details=req.params.receiver_details
+    const parcels=await db.exec('getReceiverParcels',{receiver_details})
+    const {recordset}=parcels
+    if (!parcels.recordset[0]) {
+        res.json({ message: "Parcel Not Found" });
+      } else {
+        res.json(recordset);
+       
+      }
+    
+        
+    } catch (error) {
+    res.json({error})
+        
+    }
+    
+    }
+    
