@@ -9,6 +9,7 @@ import { LoginService } from 'src/app/Services/login.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  name=localStorage.getItem('name')
 
   constructor(private loginService:LoginService,private router:Router) { }
 

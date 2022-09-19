@@ -81,6 +81,8 @@ export const loginClient = async (req: ExtendedRequest, res: Response) => {
           token,
           role: client[0].role,
           name: client[0].name,
+          client_id:client[0].client_id,
+          email:client[0].email
         });
     }
   } catch (error) {

@@ -1,5 +1,5 @@
-CREATE PROCEDURE getParcels
+CREATE OR ALTER PROCEDURE getParcels
 AS
 BEGIN
-SELECT * FROM ParcelsTable
+SELECT * FROM ParcelsTable WHERE is_cancelled='0'
 END

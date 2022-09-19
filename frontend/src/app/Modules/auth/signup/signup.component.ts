@@ -13,6 +13,11 @@ import { SignupService } from 'src/app/Services/signup.service';
 export class SignupComponent implements OnInit {
 
   signUpForm!:FormGroup
+  name!:string
+  email!:string
+  contact!:string
+  password!:string
+  message!:string
 
   constructor(private fb:FormBuilder,private signUpService:SignupService,private router:Router) { }
 

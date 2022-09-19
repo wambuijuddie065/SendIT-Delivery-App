@@ -29,7 +29,41 @@
 -- END
 -- END
 
- ALTER PROCEDURE insertUpdateParcel(
+--  ALTER PROCEDURE insertUpdateParcel(
+-- @parcel_id VARCHAR(200),
+-- @sender_details VARCHAR(200),
+-- @receiver_details VARCHAR(200),
+-- @pick_up VARCHAR (200),
+-- @destination VARCHAR (200),
+-- @description VARCHAR (200),
+-- @weight INT,
+-- @price INT ,
+-- @status VARCHAR (200),
+-- @is_delivered VARCHAR(10)='0')
+-- AS
+-- BEGIN
+-- DECLARE @variableId BIT
+
+-- SELECT @variableId =COUNT(parcel_id) FROM ParcelsTable WHERE parcel_id=@parcel_id
+
+-- IF @variableId=0
+-- BEGIN
+
+-- INSERT INTO ParcelsTable(parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status)
+-- VALUES(@parcel_id,@sender_details,@receiver_details,@pick_up,@destination,@description,@weight,@price,@status)
+-- END
+-- ELSE 
+-- BEGIN
+-- UPDATE [ParcelsTable]
+-- SET
+-- status=@status,
+-- is_delivered='1'
+-- WHERE parcel_id=@parcel_id
+-- END
+-- END
+
+
+ALTER PROCEDURE insertUpdateParcel(
 @parcel_id VARCHAR(200),
 @sender_details VARCHAR(200),
 @receiver_details VARCHAR(200),
@@ -56,6 +90,13 @@ ELSE
 BEGIN
 UPDATE [ParcelsTable]
 SET
+sender_details=@sender_details,
+receiver_details=@receiver_details,
+pick_up=@pick_up,
+destination=@destination,
+description=@description,
+weight=@weight,
+price=@price,
 status=@status,
 is_delivered='1'
 WHERE parcel_id=@parcel_id

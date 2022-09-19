@@ -17,41 +17,42 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private router:Router,private loginService:LoginService) {
-    localStorage.setItem("email",'admin@gmail.com')
-    localStorage.setItem("password",'@Admin254')
+    // localStorage.clear()
    }
 
   ngOnInit(): void {
   }
 
   onLogin(){
+    if(this.loginForm.valid){
+      const client: LoginInterface = this.loginForm.value
+      this.loginService.login(client).subscribe((response)=>{
+        response.token ? localStorage.setItem('token', response.token) : '';
+        response.role ? localStorage.setItem('role', response.role) : '';
+        response.name?localStorage.setItem('name',response.name):'';
+        response.email?localStorage.setItem('email',response.email):'';
+        response.client_id?localStorage.setItem('client_id',response.client_id):'';
+        
 
+      })
+      const role=localStorage.getItem('role')
+      if (role === 'admin') {
+        this.router.navigate(['/admin/dashboard'])
+        localStorage.setItem('isLoggedIn','true')
+      } else if (role==='client') {
+        this.router.navigate(['/user/sent-parcels'])
+        localStorage.setItem('isLoggedIn','true')
+      }
+      else{
+        this.router.navigate(['/home'])
+        localStorage.setItem('isLoggedIn','false')
 
-    const token = localStorage.setItem("token", 'zxdcfgvhbjnmk897654@@@33#')
-
-    let email = localStorage.getItem("email")
-    let password = localStorage.getItem("password")
-
-    const user: LoginInterface = this.loginForm.value
-    console.log(user);
-    
-
-    if(user.email === email || user.password === password){
-      this.router.navigate(['/admin/dashboard'])
-      
-    }else{
-      this.router.navigate(['/user/sent-parcels'])
-      
-     
+      }
 
     }
-    
-  }
   
-      
-  
-    
-    
-    
+ 
   }
+
+}
 

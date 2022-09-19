@@ -49,21 +49,21 @@ export class ParcelEffect {
       ))
     )
    })
-   addClient = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(ParcelActions.RegisterClient),
-      mergeMap((action) =>
-        this.signupService.signUp(action.newClient).pipe(
-          map((res) =>
-            ParcelActions.RegisterClientSuccess({ addClientMessage: res.message })
-          ),
-          catchError((error) =>
-            of(ParcelActions.RegisterClientFailure({ error: error }))
-          )
-        )
-      )
-    );
-  });
+  //  addClient = createEffect(() => {
+  //   return this.actions$.pipe(
+  //     ofType(ParcelActions.RegisterClient),
+  //     mergeMap((action) =>
+  //       this.signupService.signUp(action.newClient).pipe(
+  //         map((res) =>
+  //           ParcelActions.RegisterClientSuccess({ addClientMessage: res.message })
+  //         ),
+  //         catchError((error) =>
+  //           of(ParcelActions.RegisterClientFailure({ error: error }))
+  //         )
+  //       )
+  //     )
+  //   );
+  // });
   loadClient = createEffect(() => {
     return this.actions$.pipe(
       ofType(ParcelActions.LoadClients),
