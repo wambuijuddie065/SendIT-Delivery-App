@@ -18,6 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   page:number=1
   srch:string=''
 
+
   constructor(
     private store: Store<fromParcel.AppState>,
     private router: Router,
@@ -35,11 +36,11 @@ export class AdminDashboardComponent implements OnInit {
   loadParcels() {
     this.store.dispatch(parcelActions.LoadParcels());
   }
-  onDelete(id: number = 0) {
+  onDelete(id:string) {
     this.store.dispatch(parcelActions.DeleteParcel({ id }));
     this.store.dispatch(parcelActions.LoadParcels());
   }
-  viewParcel(id: number = 0) {
+  viewParcel(id:string) {
     this.store.dispatch(parcelActions.SelectedId({ id }));
     this.router.navigate([`/admin/view/${id}`], { relativeTo: this.actRoute });
   }

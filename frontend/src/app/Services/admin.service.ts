@@ -28,17 +28,17 @@ export class AdminService {
     return this.http.get<ParcelInterface[]>(`${this.baseUrl}`)
 
   }
-  getParcel(id:number):Observable<ParcelInterface[]>{
+  getParcel(id:string):Observable<ParcelInterface[]>{
     return this.http.get<ParcelInterface[]>(`${this.baseUrl}/${id}`)
 
   }
-  deleteParcel(id:number):Observable<{message:string}>{
+  deleteParcel(id:string):Observable<{message:string}>{
     return this.http.delete<{message:string}>(`${this.baseUrl}/${id}`)
   }
   updateParcel(parcel:ParcelInterface):Observable<UpdateResponseInterface>{
     console.log(parcel);
     
-    return this.http.patch<UpdateResponseInterface>(`${this.baseUrl}/${parcel.id?parcel.id:''}`,parcel)
+    return this.http.patch<UpdateResponseInterface>(`${this.baseUrl}/${parcel.parcel_id?parcel.parcel_id:''}`,parcel)
   }
 
 }

@@ -7,7 +7,7 @@ import { SignupInterface } from '../Interfaces/interfaces';
   providedIn: 'root'
 })
 export class SignupService {
-  baseUrl="http://localhost:5000/clients"
+  baseUrl="http://localhost:5000/clients/register"
 
   constructor(private http:HttpClient) { }
 

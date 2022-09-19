@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AdminService } from 'src/app/Services/admin.service';
-import { getParcel, getParcelId, ParcelState } from '../AdminStates/parcel.reducer';
+import { getParcel, getparcel_id, ParcelState } from '../AdminStates/parcel.reducer';
 import * as ParcelActions from '../AdminStates/parcel.action'
 import { ParcelInterface } from 'src/app/Interfaces/interfaces';
 
@@ -18,9 +18,9 @@ export class UpdateStatusComponent implements OnInit {
 
   updateParcelForm!: FormGroup;
   
-id!:number
+id!:string
   ngOnInit(): void {
-    this.store.select(getParcelId).subscribe(x=>this.id=x)
+    this.store.select(getparcel_id).subscribe(x=>this.id=x)
     this.store.dispatch(ParcelActions.LoadParcels())
     this.updateParcelForm = this.fb.group({
       sender_details: [null, [Validators.required]],

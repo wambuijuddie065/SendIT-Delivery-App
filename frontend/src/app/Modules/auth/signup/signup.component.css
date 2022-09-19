@@ -1,12 +1,12 @@
 .main{
     background-color: #06062C;
-    height: 800px;
+    /* height: 800px; */
 }
 .container{
     border: solid 2px #06062C;
-    height: 500px;
+    height: fit-content;
     width: 400px;
-    padding: 20px;
+    padding: 10px;
     margin: 0px auto;
     border-radius: 20px;
     display: flex;
@@ -48,9 +48,9 @@ button{
     text-align: right;
 }
 input.ng-invalid.ng-touched{
-    border: solid 2px red;
+    border-bottom: solid 2px red;
 }
 
-.error{
+small{
     color: red;
 }

@@ -4,10 +4,10 @@ Content-Type: application/json
 
 
 {
-    "name":"judy",
-    "email":"jojowambui620@gmail.com",
+    "name":"Jonathan",
+    "email":"jonathanndambuki16@gmail.com",
     "contact":"0712345678",
-    "password":"@Judy254"
+    "password":"@Jonathan254"
 }
 
 ###
@@ -16,8 +16,8 @@ Content-Type: application/json
 
 {
     
-    "email":"user2@gmail.com",
-    "password":"@User2254"
+    "email":"admin@gmail.com",
+    "password":"@Admin254"
 }
 
 
@@ -38,11 +38,13 @@ GET http://localhost:5000/clients/d651f21b-0be4-4351-bbec-a6f5a504809c
 
 POST http://localhost:5000/parcels/add
 Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViLTQwMjAtYTA1ZS03Y2E4YTEzY2ZhYWIiLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNvbnRhY3QiOiIwNzEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwiaXNfd2VsY29tZSI6IjAiLCJpYXQiOjE2NjM1ODYwNzIsImV4cCI6MTY2NzE4NjA3Mn0.RZIW9D83B5xslVUr4JPNF88bUI3VtDLRCtIeH6RekW8
+
 
 {
-    "sender_details":"judywambui620@gmail.com",
-    "receiver_details":"juslydyjulivia@gmail.com",
-    "pick_up":"Nyeri",
+    "sender_details":"juslydyjulivia@gmail.com",
+    "receiver_details":"judynackson@gmail.com",
+    "pick_up":"Nai",
     "destination":"Nakuru",
     "description":"Fragile",
     "weight":20,
@@ -53,23 +55,30 @@ Content-Type: application/json
 ###
 
 GET http://localhost:5000/parcels
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViLTQwMjAtYTA1ZS03Y2E4YTEzY2ZhYWIiLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNvbnRhY3QiOiIwNzEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwiaXNfd2VsY29tZSI6IjAiLCJpYXQiOjE2NjM1ODYwNzIsImV4cCI6MTY2NzE4NjA3Mn0.RZIW9D83B5xslVUr4JPNF88bUI3VtDLRCtIeH6RekW8
+
+
 
 ###
 
-GET http://localhost:5000/parcels/6622b670-e529-4d42-aeb7-57dbe762b1fd
+GET http://localhost:5000/parcels/d886ec0f-06bc-42be-b8b1-7b0163a2f65d
 
 ###
 
-PATCH http://localhost:5000/parcels/deliver/80d291d5-b3c6-4888-b7b8-996f3fd1342d
+PATCH http://localhost:5000/parcels/deliver/f9f29aca-377a-442d-8323-841cf42f97e9
 Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViLTQwMjAtYTA1ZS03Y2E4YTEzY2ZhYWIiLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNvbnRhY3QiOiIwNzEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwiaXNfd2VsY29tZSI6IjAiLCJpYXQiOjE2NjM1ODYwNzIsImV4cCI6MTY2NzE4NjA3Mn0.RZIW9D83B5xslVUr4JPNF88bUI3VtDLRCtIeH6RekW8
+
 
 {
-    "status":"delivered"  
+    "status":"delivered" 
 }
 
 
 ###
-PATCH http://localhost:5000/parcels/delete/100
+DELETE  http://localhost:5000/parcels/delete/d886ec0f-06bc-42be-b8b1-7b0163a2f65d
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViLTQwMjAtYTA1ZS03Y2E4YTEzY2ZhYWIiLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNvbnRhY3QiOiIwNzEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwiaXNfd2VsY29tZSI6IjAiLCJpYXQiOjE2NjM1ODYwNzIsImV4cCI6MTY2NzE4NjA3Mn0.RZIW9D83B5xslVUr4JPNF88bUI3VtDLRCtIeH6RekW8
+
 
 
 ###

@@ -8,22 +8,22 @@ import { LoginInterface } from '../Interfaces/interfaces';
   providedIn: 'root'
 })
 export class LoginService {
-  baseUrl="http://localhost:3000/users"
-  loggedIn:boolean=false
+  baseUrl="http://localhost:5000/clients/login"
+  // loggedIn:boolean=false
 
   constructor(private http: HttpClient,private router:Router) { }
-  login(user: LoginInterface): Observable<LoginInterface> {
-    return this.http.post<LoginInterface>(`${this.baseUrl}`, user);
+  login(client: LoginInterface): Observable<LoginInterface> {
+    return this.http.post<LoginInterface>(`${this.baseUrl}`, client);
   }
   IsLoggedIn() {
-    this.loggedIn=true
-  
+    // this.loggedIn=true
     return localStorage.getItem('token')
   }
   logout(){
-    this.loggedIn=false
-    this.router.navigate(['/home'])
+    // this.loggedIn=false
     localStorage.clear()
+    this.router.navigate(['/home'])
+    
   }
   isAuthenticated(){
     return this.IsLoggedIn()

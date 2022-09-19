@@ -8,7 +8,7 @@ export const LoadParcels = createAction('LoadParcels');
 export const SelectedId = createAction(
   'SelectedId',
 
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 export const LoadParcelsSuccess = createAction(
   'LoadParcelsSuccess',
@@ -44,7 +44,7 @@ export const UpdateParcelFail = createAction(
 );
 export const DeleteParcel = createAction(
   'DeleteParcel',
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 export const DeleteParcelSuccess = createAction(
   'DeleteParcelSuccess',
@@ -54,18 +54,18 @@ export const DeleteParcelFail = createAction(
   'DeleteParcelFail',
   props<{ error: string }>()
 );
-export const RegisterClient = createAction(
-  'RegisterClient',
-  props<{ newClient: SignupInterface }>()
-);
-export const RegisterClientSuccess = createAction(
-  'RegisterClientSuccess',
-  props<{ addClientMessage: string }>()
-);
-export const RegisterClientFailure = createAction(
-  'RegisterClientFailure',
-  props<{ error: string }>()
-);
+// export const RegisterClient = createAction(
+//   'RegisterClient',
+//   props<{ newClient: SignupInterface }>()
+// );
+// export const RegisterClientSuccess = createAction(
+//   'RegisterClientSuccess',
+//   props<{ addClientMessage: string }>()
+// );
+// export const RegisterClientFailure = createAction(
+//   'RegisterClientFailure',
+//   props<{ error: string }>()
+// );
 export const LoadClients = createAction('LoadClients');
 export const LoadClientsSuccess = createAction(
   'LoadClientsSuccess',

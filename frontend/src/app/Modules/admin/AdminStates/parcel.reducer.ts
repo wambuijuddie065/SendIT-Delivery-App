@@ -4,10 +4,10 @@ import { ParcelInterface, SignupInterface } from "src/app/Interfaces/interfaces"
 import * as fromRoot from "../../../State/app-state"
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store"
 import { Actions } from "@ngrx/effects"
-import { state } from "@angular/animations"
+
 
 export interface ParcelState{
-    parcelId:number
+    parcel_id:string
     parcels:ParcelInterface[] 
     addParcelMessage:string
     updateParcelMessage:string
@@ -25,7 +25,7 @@ export interface AppState extends fromRoot.AppState{
 }
 
 export const initialState:ParcelState= {
-    parcelId:0,
+    parcel_id:'',
     parcels:[],
     addParcelMessage:"",
     updateParcelMessage:"",
@@ -45,14 +45,14 @@ export const initialState:ParcelState= {
         getParcelFeatureState,
         (state:ParcelState)=>state.parcels
     )
-    export  const getParcelId=createSelector(
+    export  const getparcel_id=createSelector(
         getParcelFeatureState,
-        (state:ParcelState)=>state.parcelId
+        (state:ParcelState)=>state.parcel_id
     )
     export  const getParcel =createSelector(
         getParcelFeatureState,
-        getParcelId,
-        (state,id )=>state.parcels.find(parcel=>parcel.id==id)
+        getparcel_id,
+        (state,id )=>state.parcels.find(parcel=>parcel.parcel_id==id)
     )
     export  const getError=createSelector(
         getParcelFeatureState,
@@ -80,7 +80,7 @@ export const parcelReducer=createReducer(initialState,
         return {...state,error:action.error}
     }),
     on(parcelActions.SelectedId,(state,action):ParcelState=>{
-        return {...state,parcelId:action.id}
+        return {...state,parcel_id:action.id}
     }),
     on(parcelActions.DeleteParcelSuccess,(state,action):ParcelState=>{
         return {...state,deleteParcelMessage:action.deleteParcelMessage}
@@ -94,12 +94,12 @@ export const parcelReducer=createReducer(initialState,
     on(parcelActions.UpdateParcelFail,(state,action):ParcelState=>{
         return {...state,error:action.error}
     }),
-    on(parcelActions.RegisterClientSuccess,(state,action):ParcelState=>{
-        return{...state, addClientmessage:action.addClientMessage}
-    }),on(parcelActions.RegisterClientFailure,(state,action):ParcelState=>{
-        return{...state, error:action.error}
+    // on(parcelActions.RegisterClientSuccess,(state,action):ParcelState=>{
+    //     return{...state, addClientmessage:action.addClientMessage}
+    // }),on(parcelActions.RegisterClientFailure,(state,action):ParcelState=>{
+    //     return{...state, error:action.error}
     
-    }),
+    // }),
     on(parcelActions.LoadClientsSuccess, (state, action): ParcelState => {
       return { ...state, clients: action.clients};
     }),

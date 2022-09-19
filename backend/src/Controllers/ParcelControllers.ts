@@ -1,6 +1,7 @@
 import { Request, RequestHandler, Response } from "express"
 import {v4 as uid}  from 'uuid'
 import Connection from "../DatabaseHelpers/db"
+import { ParcelSchema1 } from "../Validators/ParcelValidator"
 
 const db=new Connection()
 
@@ -30,6 +31,10 @@ export const addParcel=async(req:ExtendedRequest,res:Response)=>{
         const id=uid()
         const{sender_details,receiver_details,pick_up,destination,description,weight,price,status}=req.body
         const parcel_id=id
+        const { error, value } = ParcelSchema1.validate(req.body);
+        if (error) {
+          res.status(401).json({ error: error.details[0].message });
+        }
        
         
         db.exec('insertUpdateParcel',{ parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status})

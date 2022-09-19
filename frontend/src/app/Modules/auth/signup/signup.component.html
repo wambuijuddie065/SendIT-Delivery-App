@@ -1,13 +1,19 @@
 <div class="main">
     <app-navbar></app-navbar>
+    
     <div class="container">
+        <app-messages [message]="message" *ngIf="message"></app-messages>
         <img class="logo" src="../../../../assets/logo.svg" alt="logo">
             <p>SIGN UP</p>
         <form class="signupForm" (ngSubmit)="onSignUp()"  [formGroup]="signUpForm">
-           
+             <!-- <small *ngIf="!signUpForm.get('name').valid && signUpForm.get('name').touched">Name is required</small> -->
             <input type="text" placeholder="Name" formControlName="name">
+            <!-- <small>Email is required</small> -->
+            <!-- <small>Please enter a valid email</small> -->
             <input type="text" placeholder="Email" formControlName="email">
+            <!-- <small>Contact is required</small> -->
             <input type="text" placeholder="Contact" formControlName="contact">
+            <!-- <small>Password is required</small> -->
             
             <input type="password" placeholder="Password" formControlName="password">
             <button type="submit" > SIGN UP</button>

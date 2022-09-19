@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/Services/login.service';
 })
 export class AdminComponent implements OnInit {
   searchText:string=''
+  name=localStorage.getItem('name')
 
   constructor(private loginService:LoginService,private router:Router,private adminService:AdminService) { }
 
