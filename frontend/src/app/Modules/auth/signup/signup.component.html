@@ -6,17 +6,17 @@
         <img class="logo" src="../../../../assets/logo.svg" alt="logo">
             <p>SIGN UP</p>
         <form class="signupForm" (ngSubmit)="onSignUp()"  [formGroup]="signUpForm">
-             <!-- <small *ngIf="!signUpForm.get('name').valid && signUpForm.get('name').touched">Name is required</small> -->
+             <small *ngIf="!signUpForm.get('name')!.valid && signUpForm.get('name')!.touched">Name is required</small>
             <input type="text" placeholder="Name" formControlName="name">
-            <!-- <small>Email is required</small> -->
-            <!-- <small>Please enter a valid email</small> -->
+            <small *ngIf=" f['email'].touched && f['email'].errors && f['email'].errors['required']">Email is required</small>
+            <small *ngIf="f['email'].errors && f['email'].errors['email']">Please enter a valid email</small>
             <input type="text" placeholder="Email" formControlName="email">
-            <!-- <small>Contact is required</small> -->
+            <small *ngIf="!signUpForm.get('contact')!.valid && signUpForm.get('contact')!.touched">Contact is required</small>
             <input type="text" placeholder="Contact" formControlName="contact">
-            <!-- <small>Password is required</small> -->
+            <small *ngIf="!signUpForm.get('password')!.valid && signUpForm.get('password')?.touched">Password is required</small>
             
             <input type="password" placeholder="Password" formControlName="password">
-            <button type="submit" > SIGN UP</button>
+            <button type="submit" [disabled]="signUpForm.invalid"> SIGN UP</button>
         </form>
         <p class="new">Already a member? <a href="" routerLink="/auth/login">LOGIN</a></p>
     

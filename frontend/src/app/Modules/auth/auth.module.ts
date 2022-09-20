@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -17,11 +18,10 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AuthRoutingModule,
     SharedModule
-   
   ]
 })
 export class AuthModule { }

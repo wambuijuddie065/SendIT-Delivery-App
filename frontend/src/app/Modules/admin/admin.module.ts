@@ -17,6 +17,8 @@ import { SearchPipe } from 'src/app/Pipes/search.pipe';
 import { DeliveredPipe } from 'src/app/Pipes/delivered.pipe';
 import { DispatchedPipe } from 'src/app/Pipes/dispatched.pipe';
 import { DispatchedComponent } from './dispatched/dispatched.component';
+import { AuthService } from 'src/app/Services/auth.service';
+
 
 
 
@@ -43,6 +45,9 @@ import { DispatchedComponent } from './dispatched/dispatched.component';
     EffectsModule.forFeature([ParcelEffect]),
     NgxPaginationModule
 
+  ],
+  providers:[
+    
   ]
 })
 export class AdminModule { }

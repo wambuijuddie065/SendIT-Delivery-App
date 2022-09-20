@@ -41,9 +41,10 @@ Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViLTQwMjAtYTA1ZS03Y2E4YTEzY2ZhYWIiLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNvbnRhY3QiOiIwNzEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwiaXNfd2VsY29tZSI6IjAiLCJpYXQiOjE2NjM1ODYwNzIsImV4cCI6MTY2NzE4NjA3Mn0.RZIW9D83B5xslVUr4JPNF88bUI3VtDLRCtIeH6RekW8
 
 
+
 {
-    "sender_details":"juslydyjulivia@gmail.com",
-    "receiver_details":"judynackson@gmail.com",
+    "sender_details":"wambuijuddie065@gmail.com",
+    "receiver_details":"jonathanndambuki16@gmail.com",
     "pick_up":"Nai",
     "destination":"Nakuru",
     "description":"Fragile",
@@ -65,7 +66,7 @@ GET http://localhost:5000/parcels/d886ec0f-06bc-42be-b8b1-7b0163a2f65d
 
 ###
 
-PATCH http://localhost:5000/parcels/deliver/f9f29aca-377a-442d-8323-841cf42f97e9
+PATCH http://localhost:5000/parcels/deliver/85c16a96-a70e-499f-aece-04f19e3b1929
 Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViLTQwMjAtYTA1ZS03Y2E4YTEzY2ZhYWIiLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNvbnRhY3QiOiIwNzEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwiaXNfd2VsY29tZSI6IjAiLCJpYXQiOjE2NjM1ODYwNzIsImV4cCI6MTY2NzE4NjA3Mn0.RZIW9D83B5xslVUr4JPNF88bUI3VtDLRCtIeH6RekW8
 
@@ -76,7 +77,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViL
 
 
 ###
-DELETE  http://localhost:5000/parcels/delete/d886ec0f-06bc-42be-b8b1-7b0163a2f65d
+DELETE  http://localhost:5000/parcels/delete/85c16a96-a70e-499f-aece-04f19e3b1929
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJhMDQwMmI2OS00NTViLTQwMjAtYTA1ZS03Y2E4YTEzY2ZhYWIiLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNvbnRhY3QiOiIwNzEyMzQ1Njc4Iiwicm9sZSI6ImFkbWluIiwiaXNfd2VsY29tZSI6IjAiLCJpYXQiOjE2NjM1ODYwNzIsImV4cCI6MTY2NzE4NjA3Mn0.RZIW9D83B5xslVUr4JPNF88bUI3VtDLRCtIeH6RekW8
 
 

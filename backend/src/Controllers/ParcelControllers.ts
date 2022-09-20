@@ -38,7 +38,7 @@ export const addParcel=async(req:ExtendedRequest,res:Response)=>{
        
         
         db.exec('insertUpdateParcel',{ parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status})
-        res.status(201).send("Parcel Added Successfully!")
+        res.status(201).send("Parcel Dispatched Successfully!")
     } catch (error) {
         res.status(400).send("Failed To Add Parcel!")
     }
@@ -93,7 +93,7 @@ export const updateDelivered:RequestHandler<{parcel_id:string}>=async(req,res)=>
                 res.status(404).send("Parcel Not Found!")
             }else{
                await  db.exec('insertUpdateParcel',{parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status,is_delivered})
-                res.status(200).json({message:'Parcel Updated'})
+                res.status(200).json({message:'Parcel Delivered'})
             }
         
         

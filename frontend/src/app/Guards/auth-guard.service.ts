@@ -7,7 +7,7 @@ import {
   UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginService } from '../Services/login.service';
+import { AuthService } from '../Services/auth.service';
 
 
 
@@ -15,9 +15,12 @@ import { LoginService } from '../Services/login.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private loginService: LoginService, private route: Router) {}
-  canActivate():boolean {
-    if (this.loginService.IsLoggedIn()) {
+  constructor(private authService: AuthService, private route: Router) {}
+  canActivate( route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean{
+    const token=localStorage.getItem('token') as string
+    if (token) {
       return true;
     } else {
       this.route.navigate(['/home']);
@@ -25,6 +28,6 @@ export class AuthGuard implements CanActivate {
     }
   }
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.canActivate()
+    return this.canActivate(childRoute,state)
 }
 }

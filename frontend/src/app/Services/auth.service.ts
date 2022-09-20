@@ -1,26 +1,37 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { LoginInterface, SignupInterface } from '../Interfaces/interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthService  {
+export class AuthService {
+  signupUrl = 'http://localhost:5000/clients/register';
+  loginUrl = 'http://localhost:5000/clients/login';
 
-  IsLoggedIn:boolean=false
-
-  constructor() { }
-
-  login(){
-  
-    this.IsLoggedIn=true
-    return localStorage.getItem('token')
+  getToken() {
+    return localStorage.getItem('token');
   }
-  logout(){
-    this.IsLoggedIn=false
-    localStorage.clear()
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+  signUp(client: SignupInterface): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.signupUrl}`, client);
   }
-  isAuthenticated(){
-   
-    return this.IsLoggedIn
+  getclients(): Observable<SignupInterface[]> {
+    return this.http.get<SignupInterface[]>(`${this.signupUrl}`);
+  }
+  login(client: LoginInterface): Observable<LoginInterface> {
+    return this.http.post<LoginInterface>(`${this.loginUrl}`, client);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home']);
+  }
+  isLoggedIn(){
+    return !!localStorage.getItem('token')
   }
 }
