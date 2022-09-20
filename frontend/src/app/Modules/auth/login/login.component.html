@@ -5,11 +5,13 @@
             <p>LOGIN</p>
         <form class="loginForm" #loginForm="ngForm" (ngSubmit)="onLogin()" >
             
+            <small *ngIf="(email.valid ||email.touched) && email.errors?.['required'] ">Email is required</small>
+            <input type="text" placeholder="Email" ngModel name="email" #email="ngModel" required>
             
-            <input type="text" placeholder="Email"  name="email" ngModel required >
+            <small *ngIf="(password.valid ||password.touched) && password.errors?.['required'] ">password is required</small>
             
-            <input type="password" placeholder="Password"  name="password" ngModel required>
-            <button type="submit" > LOGIN</button>
+            <input type="password" placeholder="Password" #password="ngModel"   name="password" ngModel required>
+            <button type="submit"[disabled]="!loginForm.valid" > LOGIN</button>
         </form>
         <p class="new">New member? <a href="" routerLink="/auth/signup">REGISTER</a></p>
     

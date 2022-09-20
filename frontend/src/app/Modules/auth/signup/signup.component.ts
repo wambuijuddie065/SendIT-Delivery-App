@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupInterface } from 'src/app/Interfaces/interfaces';
-import { SignupService } from 'src/app/Services/signup.service';
+import { AuthService } from 'src/app/Services/auth.service';
+
 
 
 @Component({
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
   password!:string
   message!:string
 
-  constructor(private fb:FormBuilder,private signUpService:SignupService,private router:Router) { }
+  constructor(private fb:FormBuilder,private authService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.signUpForm=this.fb.group({
@@ -29,16 +30,23 @@ export class SignupComponent implements OnInit {
       password:[null,[Validators.required,Validators.minLength(8)]],
     })
   }
+  get f(){
+
+    return this.signUpForm.controls;
+
+  }
   onSignUp(){
     const user:SignupInterface=this.signUpForm.value
-    this.signUpService.signUp(user).subscribe((response)=>{
+    console.log(this.signUpForm);
+    
+    this.authService.signUp(user).subscribe((response)=>{
       console.log(response);
       
     } , (error)=>{console.log(error)
     })
 
     this.signUpForm.reset()
-    this.router.navigate(['/user/sent-parcels'])}
+    this.router.navigate(['/auth/login'])}
     
 
 }

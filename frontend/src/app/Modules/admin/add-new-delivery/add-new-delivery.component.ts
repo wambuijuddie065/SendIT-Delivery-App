@@ -22,10 +22,9 @@ export class AddNewDeliveryComponent implements OnInit {
   receiver_details!: string;
   pick_up!: string;
   destination!: string;
-  parcel_id!: string;
   description!: string;
-  weight!: string;
-
+  weight!: number;
+  price!: number;
   status!: string;
   clients$ = this.store.select(getClients)
 
@@ -43,9 +42,9 @@ export class AddNewDeliveryComponent implements OnInit {
       receiver_details: ['select', [Validators.required]],
       pick_up: [null, [Validators.required]],
       destination: [null, [Validators.required]],
-      parcel_id: [null, [Validators.required]],
       description: [null, [Validators.required]],
       weight: [null, [Validators.required]],
+      price: [null, [Validators.required]],
       status: [null, [Validators.required]],
     });
     this.getClientEmail()

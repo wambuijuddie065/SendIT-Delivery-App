@@ -5,11 +5,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 
 
 import { SharedModule } from './Modules/shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -30,9 +32,12 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument(),
     HttpClientModule,
     EffectsModule.forRoot([]),
+    FormsModule,
+    ReactiveFormsModule
    
   ],
-  providers: [],
+  providers: [
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

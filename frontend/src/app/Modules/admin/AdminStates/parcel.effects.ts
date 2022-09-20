@@ -5,13 +5,13 @@ import {  Actions, ofType, createEffect } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { map, mergeMap, catchError, concatMap } from 'rxjs/operators';
 import { AdminService } from 'src/app/Services/admin.service';
-import { SignupService } from 'src/app/Services/signup.service';
 import { Action } from '@ngrx/store';
 import * as ParcelActions from '../AdminStates/parcel.action'
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Injectable()
 export class ParcelEffect {
-  constructor(private actions$: Actions, private adminService: AdminService,private signupService:SignupService) {}
+  constructor(private actions$: Actions, private adminService: AdminService,private authService:AuthService) {}
    loadParcel=createEffect(()=>{
     return this.actions$.pipe(
       ofType(ParcelActions.LoadParcels),
@@ -68,7 +68,7 @@ export class ParcelEffect {
     return this.actions$.pipe(
       ofType(ParcelActions.LoadClients),
       concatMap(() =>
-        this.signupService.getclients().pipe(
+        this.authService.getclients().pipe(
           map((clients) => ParcelActions.LoadClientsSuccess({ clients })),
           catchError((error) =>
             of(ParcelActions.LoadClientsFailure({ error: error.message }))
