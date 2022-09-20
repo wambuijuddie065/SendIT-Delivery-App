@@ -1,0 +1,6 @@
+
+CREATE OR ALTER PROCEDURE getName(@email VARCHAR(200))
+AS
+BEGIN
+SELECT name FROM ClientsTable WHERE email=@email
+END

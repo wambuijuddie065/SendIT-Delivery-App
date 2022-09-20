@@ -2,12 +2,9 @@
     <div *ngIf="parcels.length ;else noParcels" class="parcelsContainer">
    
         <div *ngFor="let parcel of parcels |search:srch |  paginate:{itemsPerPage:4,currentPage:page}  ,let i=index" class="aParcel">
-            <p>From:{{parcel.sender_details}}</p>
-            <p>To:{{parcel.receiver_details}}</p>
-           <p> Pick-up:{{parcel.pick_up}}</p> 
+            <p>From: {{parcel.sender_name}}</p>
+            <p>To:{{parcel.receiver_name}}</p>
            <p> Destination:{{parcel.destination}}</p> 
-            <p>ParcelId:{{parcel.parcel_id}}</p>
-            <p>{{parcel.description}}</p>
             <p><i>{{parcel.status}}</i></p>
             <button (click)="viewParcel(parcel.parcel_id)" class="viewBtn">VIEW</button>
             <button  class="deleteBtn" (click)="onDelete(parcel.parcel_id)">DELETE</button>
