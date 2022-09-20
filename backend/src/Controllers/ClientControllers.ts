@@ -114,3 +114,21 @@ export const getClientById: RequestHandler<{ client_id: string }> = async (
     res.status(400).send("An Error Occurred!");
   }
 };
+export const getName:RequestHandler<{email:string}>=async(req,res)=>{
+  try {
+    const email=req.params.email
+
+    const {recordset}=await db.exec("getName",{email})
+    
+    if (!recordset[0]) {
+      res.status(404).send("Client Not Found!");
+    } else {
+      res.status(200).json(recordset[0].name);
+    }
+    
+  } catch (error) {
+    res.json({error})
+    
+  }
+
+}

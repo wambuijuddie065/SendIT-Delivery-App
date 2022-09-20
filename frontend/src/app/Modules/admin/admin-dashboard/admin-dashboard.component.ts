@@ -15,33 +15,39 @@ import { AdminService } from 'src/app/Services/admin.service';
 export class AdminDashboardComponent implements OnInit {
   // parcels$!: Observable<ParcelInterface[]>
   parcels$ = this.store.pipe(select(fromParcel.getParcels));
-  page:number=1
-  srch:string=''
-
+  page: number = 1;
+  srch: string = '';
 
   constructor(
     private store: Store<fromParcel.AppState>,
     private router: Router,
     private actRoute: ActivatedRoute,
-    private adminService:AdminService
+    private adminService: AdminService
   ) {}
 
   ngOnInit(): void {
     this.loadParcels();
-    this.adminService.search$.subscribe((response)=>{
-      this.srch=response
-    })
+    this.adminService.search$.subscribe((response) => {
+      this.srch = response;
+    });
+    // this.showName('judynackson@gmail.com').subscribe(e=>{
+    //   console.log(e);
+      
+    // })
   }
 
   loadParcels() {
     this.store.dispatch(parcelActions.LoadParcels());
   }
-  onDelete(id:string) {
+  onDelete(id: string) {
     this.store.dispatch(parcelActions.DeleteParcel({ id }));
     this.store.dispatch(parcelActions.LoadParcels());
   }
-  viewParcel(id:string) {
+  viewParcel(id: string) {
     this.store.dispatch(parcelActions.SelectedId({ id }));
     this.router.navigate([`/admin/view/${id}`], { relativeTo: this.actRoute });
+  }
+  showName(email: string) {
+    return this.adminService.showName(email);
   }
 }

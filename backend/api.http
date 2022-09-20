@@ -31,6 +31,15 @@ GET http://localhost:5000/clients
 GET http://localhost:5000/clients/d651f21b-0be4-4351-bbec-a6f5a504809c
 
 
+#getName
+
+
+###
+GET http://localhost:5000/clients/name/jonathanndambuki16@gmail.com
+
+
+
+
 //parcels endpoints
 
 

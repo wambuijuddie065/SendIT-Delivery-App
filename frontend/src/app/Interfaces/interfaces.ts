@@ -8,6 +8,10 @@ export interface ParcelInterface{
     weight?:number | string
     price?:number | string
     status:string
+    sender_name?:string
+    receiver_name?:string
+    sender_contact?:string
+    receiver_contact?:string
 }
 
 export interface LoginInterface{
