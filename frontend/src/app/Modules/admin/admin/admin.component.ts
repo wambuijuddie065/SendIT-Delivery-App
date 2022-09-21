@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/Services/admin.service';
 import { AuthService } from 'src/app/Services/auth.service';
-;
+
 
 
 @Component({
@@ -25,10 +25,6 @@ export class AdminComponent implements OnInit {
   }
   onChange(){
 
-  this.adminService.search(this.searchText)
-  }
-  showDispatchedParcels(){
-    this.router.navigate(['/admin/dispatched'])
-  }
+  this.adminService.search(this.searchText)}
 
 }

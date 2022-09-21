@@ -1,9 +1,9 @@
 <div class="main">
     <div class="left">
         <div class="topLeft">
-            <a href="" routerLink="/user/sent-parcels">Dashboard</a>
-            <a href="">Dispatched</a>
-            <a href="">Delivered</a>
+            <!-- <a href="" routerLink="/user/sent-parcels">Dashboard</a> -->
+            <a href="" routerLink="/user/sent-parcels">Sent Parcels </a>
+            <a href="" routerLink="/user/received-parcels">Received Parcels</a>
             
         </div>
         <div class="bottomLeft">
@@ -17,7 +17,7 @@
     <div class="right">
         <div class="topRight">
             <div class="search">
-                <input type="search" placeholder="search...">
+                <input type="search" placeholder="search..." [(ngModel)]="searchText"  (input)="onChange()">
             </div>
             <div class="profile">
                 <img src="../../../../assets/user-solid.svg" alt="">
@@ -25,10 +25,10 @@
             </div>
         </div>
         <div class="bottomRight">
-            <div class="parcelCategory">
-                <button (click)="sentParcels()">Sent Parcels</button>
-                <button  (click)=" receivedParcels()">Received Parcels</button>
-            </div>
+            <!-- <div class="parcelCategory">
+                <button >Sent Parcels</button>
+                <button >Received Parcels</button>
+            </div> -->
             <router-outlet></router-outlet>
         </div>
     </div>

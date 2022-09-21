@@ -41,7 +41,8 @@ export class SentParcelsComponent implements OnInit {
     this.store.dispatch(parcelActions.LoadSentParcels())
   }
   viewParcel(id:string){
-    this.store.dispatch(parcelActions.SelectedId({ id }))
+    const parcel=this.store.dispatch(parcelActions.SelectedId({ id }))
+    
     this.router.navigate([`/user/view/${id}`], { relativeTo: this.actRoute });
   }
  
