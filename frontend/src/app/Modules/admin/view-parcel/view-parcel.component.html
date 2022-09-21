@@ -1,8 +1,8 @@
 <div class="main" *ngIf="parcel$ | async as parcel">
     <div class="left" >
         <h3>View details</h3>
-        <p>{{parcel.receiver_details}}</p>
-        <p>{{parcel.sender_details}}</p>
+        <p>{{parcel.receiver_name}}</p>
+        <p>{{parcel.sender_name}}</p>
         <p>{{parcel.weight}}</p> 
         <p>{{parcel.parcel_id}}</p> 
         <p>{{parcel.description}}</p>

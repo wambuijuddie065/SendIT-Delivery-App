@@ -1,13 +1,19 @@
-<div class="main">
-    <div class="left">
-        <p>From:user@gmail.com</p>
-           <p> Pick-up:Nyeri</p> 
-           <p> Destination:Nakuru</p> 
-            <p>ParcelId:789987</p>
-            <p>Fragile</p>
-            <p><i>delivered</i></p>
-        <button routerLink="/user/sent-parcels" class="updateBtn">CLOSE </button>
+<div class="main" *ngIf="parcel$ | async as parcel">
+    <div class="left" >
+        <h3>View details</h3>
+        <p>{{parcel.receiver_name}}</p>
+        <p>{{parcel.sender_name}}</p>
+        <p>{{parcel.weight}}</p> 
+        <p>{{parcel.parcel_id}}</p> 
+        <p>{{parcel.description}}</p>
+        <p><i>{{parcel.status}}</i></p>
+        
+            <button (click)="goBack()" class="backBtn">BACK</button> 
+        
+       
     </div>
-    <div class="right"></div>
+    <div class="right">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63835.211894174674!2d36.91768157114549!3d-0.4398688878134796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285dfed09e0ebf%3A0x829716f702f65e9e!2sNyeri!5e0!3m2!1sen!2ske!4v1663608703531!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
 </div>

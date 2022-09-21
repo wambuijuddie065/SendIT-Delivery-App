@@ -30,10 +30,7 @@ export class AdminDashboardComponent implements OnInit {
     this.adminService.search$.subscribe((response) => {
       this.srch = response;
     });
-    // this.showName('judynackson@gmail.com').subscribe(e=>{
-    //   console.log(e);
-      
-    // })
+    
   }
 
   loadParcels() {
@@ -46,8 +43,8 @@ export class AdminDashboardComponent implements OnInit {
   viewParcel(id: string) {
     this.store.dispatch(parcelActions.SelectedId({ id }));
     this.router.navigate([`/admin/view/${id}`], { relativeTo: this.actRoute });
+   }
+  // showName(email: string) {
+  //   return this.adminService.showName(email);
+  // }
   }
-  showName(email: string) {
-    return this.adminService.showName(email);
-  }
-}

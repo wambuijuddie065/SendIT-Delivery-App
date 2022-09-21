@@ -11,13 +11,13 @@ import * as ParcelActions from '../AdminStates/parcel.action'
 })
 export class ViewParcelComponent implements OnInit {
 
-  id!:number
+  id!:string
   parcel$=this.store.select(getParcel)
 
   constructor(private store:Store<ParcelState>,private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(param=>{this.id=+param['id']})
+    this.route.params.subscribe(param=>{this.id=param['id']})
     // this.store.dispatch(ParcelActions.SelectedId({id:this.id}))
   }
   goBack(){

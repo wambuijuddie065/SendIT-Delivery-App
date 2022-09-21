@@ -1,21 +1,24 @@
-<div class="main">
-    <div *ngIf="parcelsArr.length;else noParcels" class="parcelsContainer">
-        <div *ngFor="let parcel of parcelsArr,let i=index" class="aParcel">
-            <p>From:user@gmail.com</p>
-           <p> Pick-up:Nyeri</p> 
-           <p> Destination:Nakuru</p> 
-            <p>ParcelId:789987</p>
-            <p>Fragile</p>
-            <p><i>delivered</i></p>
+<div class="main" *ngIf="parcels$ | async as parcels">
+   
+    <div *ngIf="parcels.length ; else noParcels" class="parcelsContainer">
+        <div *ngFor="let parcel of parcels | search:srch | paginate:{itemsPerPage:4,currentPage:page} ,let i=index" class="aParcel">
+        
             
-            <button routerLink="/user/view" class="viewBtn">VIEW</button>
+            <p>From: {{parcel.sender_name}}</p>
+            <p>Contact:{{parcel.sender_contact}}</p>
+            <p>Pick_up:{{parcel.pick_up}}</p>
+           <p> Destination:{{parcel.destination}}</p> 
+            <p><i>{{parcel.status}}</i></p>
+            <button (click)="viewParcel(parcel.parcel_id)" class="viewBtn">VIEW</button>
+            
                
         </div>
-        
+        <pagination-controls class="page" (pageChange)="page =$event"></pagination-controls>
+       
     </div>
    
 </div>
 
 <ng-template #noParcels>
-    <p>No parcels available!!</p>
+    <p>No received parcels available!!</p>
 </ng-template>

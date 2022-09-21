@@ -73,6 +73,9 @@ export const parcelReducer=createReducer(initialState,
     on(parcelActions.LoadParcelsFail,(state,action):ParcelState=>{
         return {...state,error:action.error}
     }),
+    // on(parcelActions.AddParcel, (state,actions)=>{
+    //     return {...state, parcels:[...state.parcels,actions.newParcel]}
+    // }),
     on(parcelActions.AddParcelSuccess,(state,action):ParcelState=>{
         return {...state,addParcelMessage:action.addParcelMessage}
     }),

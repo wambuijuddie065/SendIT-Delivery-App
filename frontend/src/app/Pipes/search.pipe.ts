@@ -13,7 +13,7 @@ export class SearchPipe implements PipeTransform {
     }
     const filtered:ParcelInterface[]=[]
     for(let item of value){
-      if(item.sender_details.toLocaleLowerCase().indexOf(filterText.toLocaleLowerCase())!==-1){
+      if(item.receiver_name?.toLocaleLowerCase().indexOf(filterText.toLocaleLowerCase())!==-1){
         filtered.push(item)
       }
     }

@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { AppBackgroundDirective } from 'src/app/Directives/app-background.directive';
+import { SearchPipe } from 'src/app/Pipes/search.pipe';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AppBackgroundDirective } from 'src/app/Directives/app-background.direct
     HomepageComponent,
     NavbarComponent,
     FooterComponent,
+    SearchPipe,
    
     AppBackgroundDirective
   ],
@@ -43,7 +45,8 @@ import { AppBackgroundDirective } from 'src/app/Directives/app-background.direct
     ServicesComponent,
     MessagesComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchPipe
   ]
 })
 export class SharedModule { }

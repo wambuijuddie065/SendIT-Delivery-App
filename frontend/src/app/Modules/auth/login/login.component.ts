@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-
 import { LoginInterface } from 'src/app/Interfaces/interfaces';
 import { AuthService } from 'src/app/Services/auth.service';
+import { AppState } from '../../user/UserStates/reducers';
+import * as parcelActions from '../../user/UserStates/actions'
 
 
 @Component({
@@ -17,12 +18,14 @@ export class LoginComponent implements OnInit {
   password!: string;
   @ViewChild('loginForm') loginForm!: NgForm;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService,private store:Store<AppState>) {
     // localStorage.clear()
   
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   onLogin() {
     if (this.loginForm.valid) {
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
         response.name ? localStorage.setItem('name', response.name) : '';
         response.email ? localStorage.setItem('email', response.email) : '';
         response.client_id? localStorage.setItem('client_id', response.client_id): '';
+       
 
 
         this.router.navigate(
@@ -47,4 +51,5 @@ export class LoginComponent implements OnInit {
      
     }
   }
+
 }

@@ -7,10 +7,11 @@ import { SentParcelsComponent } from './sent-parcels/sent-parcels.component';
 import { ReceivedParcelsComponent } from './received-parcels/received-parcels.component';
 import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
 import { StoreModule } from '@ngrx/store';
-import { parcelReducer } from '../admin/AdminStates/parcel.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { ParcelEffect } from '../admin/AdminStates/parcel.effects';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SharedModule } from '../shared/shared.module';
+import { userReducer } from './UserStates/reducers';
+import { UserParcelEffect } from './UserStates/effects';
 
 
 @NgModule({
@@ -19,12 +20,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SentParcelsComponent,
     ReceivedParcelsComponent,
     ParcelDetailsComponent
+    
   ],
   imports: [
     CommonModule,
+    SharedModule,
     UserRoutingModule,
-    StoreModule.forFeature("parcels",parcelReducer),
-    EffectsModule.forFeature([ParcelEffect]),
+    StoreModule.forFeature("ClientParcels",userReducer),
+    EffectsModule.forFeature([UserParcelEffect ]),
     NgxPaginationModule
   ]
 })
