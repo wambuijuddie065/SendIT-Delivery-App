@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'',component:UserComponent, canActivate:[AuthGuard], children:[
     {path:'sent-parcels',component:SentParcelsComponent},
     {path:'received-parcels',component:ReceivedParcelsComponent},
-    {path:'view',component:ParcelDetailsComponent}
+    {path:'view/:id',component:ParcelDetailsComponent}
   ]}
 ];
 

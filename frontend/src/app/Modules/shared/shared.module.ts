@@ -14,6 +14,8 @@ import { FooterComponent } from './footer/footer.component';
 
 import { AppBackgroundDirective } from 'src/app/Directives/app-background.directive';
 import { SearchPipe } from 'src/app/Pipes/search.pipe';
+import { DispatchedPipe } from 'src/app/Pipes/dispatched.pipe';
+import { DeliveredPipe } from 'src/app/Pipes/delivered.pipe';
 
 
 @NgModule({
@@ -28,8 +30,9 @@ import { SearchPipe } from 'src/app/Pipes/search.pipe';
     NavbarComponent,
     FooterComponent,
     SearchPipe,
-   
-    AppBackgroundDirective
+    AppBackgroundDirective,
+    DispatchedPipe,
+    DeliveredPipe
   ],
   imports: [
     CommonModule,
@@ -46,7 +49,10 @@ import { SearchPipe } from 'src/app/Pipes/search.pipe';
     MessagesComponent,
     HomepageComponent,
     NavbarComponent,
-    SearchPipe
+    SearchPipe,
+    DispatchedPipe,
+    DeliveredPipe,
+    AppBackgroundDirective
   ]
 })
 export class SharedModule { }

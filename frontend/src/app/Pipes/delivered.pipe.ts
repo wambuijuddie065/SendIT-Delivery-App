@@ -6,7 +6,7 @@ import { ParcelInterface } from '../Interfaces/interfaces';
 })
 export class DeliveredPipe implements PipeTransform {
 
-  transform(value:ParcelInterface[],status:string): ParcelInterface[] {
+  transform(value:ParcelInterface[]): ParcelInterface[] {
     return value.filter(function(data:ParcelInterface){
       return (data.status)==='Delivered'
     })

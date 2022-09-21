@@ -68,6 +68,7 @@
 }
 .bottomRight{
     display: flex;
+    flex-direction: column;
     border-top-left-radius: 10px;
     flex-direction: column;
     background-color: white;

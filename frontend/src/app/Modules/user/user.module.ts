@@ -12,6 +12,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../shared/shared.module';
 import { userReducer } from './UserStates/reducers';
 import { UserParcelEffect } from './UserStates/effects';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserParcelEffect } from './UserStates/effects';
     UserRoutingModule,
     StoreModule.forFeature("ClientParcels",userReducer),
     EffectsModule.forFeature([UserParcelEffect ]),
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ]
 })
 export class UserModule { }

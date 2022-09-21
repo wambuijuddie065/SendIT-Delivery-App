@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
+import { UserService } from 'src/app/Services/user.service';
 
 
 
@@ -11,8 +12,10 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class UserComponent implements OnInit {
   name=localStorage.getItem('name')
+  searchText:string=''
 
-  constructor(private authService:AuthService,private router:Router) { }
+  constructor(private authService:AuthService,private router:Router,private route:ActivatedRoute,
+    private userService:UserService) { }
 
   ngOnInit(): void {
   }
@@ -21,13 +24,10 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/home'])
 
   }
-  sentParcels(){
-    this.router.navigate(['/user/sent-parcels'])
 
-  }
-  receivedParcels(){
-    this.router.navigate(['/user/received-parcels'])
+  onChange(){
 
-  }
+    this.userService.search(this.searchText)
+    }
 
 }

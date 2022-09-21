@@ -13,11 +13,10 @@ import { StoreModule } from '@ngrx/store';
 import{parcelReducer} from './AdminStates/parcel.reducer'
 import { ParcelEffect } from './AdminStates/parcel.effects';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { DeliveredPipe } from 'src/app/Pipes/delivered.pipe';
-import { DispatchedPipe } from 'src/app/Pipes/dispatched.pipe';
 import { DispatchedComponent } from './dispatched/dispatched.component';
 import { AuthService } from 'src/app/Services/auth.service';
 import { SharedModule } from '../shared/shared.module';
+import { DeliveredComponent } from './delivered/delivered.component';
 
 
 
@@ -30,9 +29,8 @@ import { SharedModule } from '../shared/shared.module';
     AdminDashboardComponent,
     ViewParcelComponent,
     UpdateStatusComponent,
-    DeliveredPipe,
-    DispatchedPipe,
-    DispatchedComponent
+    DispatchedComponent,
+    DeliveredComponent
     
   ],
   imports: [
