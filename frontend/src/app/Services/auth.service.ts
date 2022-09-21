@@ -10,6 +10,7 @@ import { LoginInterface, SignupInterface } from '../Interfaces/interfaces';
 export class AuthService {
   signupUrl = 'http://localhost:5000/clients/register';
   loginUrl = 'http://localhost:5000/clients/login';
+  ClientsUrl='http://localhost:5000/clients'
 
   getToken() {
     return localStorage.getItem('token');
@@ -21,7 +22,7 @@ export class AuthService {
     return this.http.post<{ message: string }>(`${this.signupUrl}`, client);
   }
   getclients(): Observable<SignupInterface[]> {
-    return this.http.get<SignupInterface[]>(`${this.signupUrl}`);
+    return this.http.get<SignupInterface[]>(`${this.ClientsUrl}`);
   }
   login(client: LoginInterface): Observable<LoginInterface> {
     return this.http.post<LoginInterface>(`${this.loginUrl}`, client);

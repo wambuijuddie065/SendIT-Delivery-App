@@ -9,7 +9,6 @@ import { UserComponent } from './user/user.component';
 const routes: Routes = [
   {path:'',component:UserComponent, canActivate:[AuthGuard], children:[
     {path:'sent-parcels',component:SentParcelsComponent},
-
     {path:'received-parcels',component:ReceivedParcelsComponent},
     {path:'view',component:ParcelDetailsComponent}
   ]}

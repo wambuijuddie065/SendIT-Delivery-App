@@ -6,6 +6,7 @@
 
 
 
+
 CREATE OR ALTER PROCEDURE getParcels
 AS
 BEGIN
@@ -18,6 +19,7 @@ SELECT
     p.price,
     p.status,
 	p.receiver_details,
+	p.sender_details,
 	d.receiver_name,
 	d.receiver_contact,
     c.name sender_name,
@@ -34,6 +36,5 @@ SELECT
 	) as d on d.receiver_email = p.receiver_details 
 	WHERE is_cancelled='0'
 END
-
 
 --exec getParcels

@@ -17,17 +17,20 @@ export class UpdateStatusComponent implements OnInit {
   constructor(private router:Router ,private adminService: AdminService,private route:ActivatedRoute, private fb: FormBuilder,private store:Store<ParcelState>) { }
 
   updateParcelForm!: FormGroup;
+  email!:string
   
-id!:string
+parcel_id!:string
   ngOnInit(): void {
-    this.store.select(getparcel_id).subscribe(x=>this.id=x)
+    this.store.select(getparcel_id).subscribe(x=>this.parcel_id=x)
     this.store.dispatch(ParcelActions.LoadParcels())
     this.updateParcelForm = this.fb.group({
       sender_details: [null, [Validators.required]],
       receiver_details: [null, [Validators.required]],
-      parcel_id: [null, [Validators.required]],
+      pick_up: [null, [Validators.required]],
+      destination: [null, [Validators.required]],
       description: [null, [Validators.required]],
       weight: [null, [Validators.required]],
+      price: [null, [Validators.required]],
       status: [null, [Validators.required]],
     })
     // this.store.select(ParcelActions.SelectedId)
@@ -37,9 +40,11 @@ id!:string
         this.updateParcelForm.patchValue({
           sender_details:parcel.sender_details,
           receiver_details:parcel.receiver_details,
-          parcel_id:parcel.parcel_id,
+          pick_up:parcel.pick_up,
+          destination:parcel.destination,
           description:parcel.description,
           weight:parcel.weight,
+          price:parcel.price,
           status:parcel.status
 
         })
@@ -48,7 +53,7 @@ id!:string
   }
 
   onUpdate(){
-    const updatedParcel:ParcelInterface={...this.updateParcelForm.value, id:this.id}
+    const updatedParcel:ParcelInterface={...this.updateParcelForm.value, parcel_id:this.parcel_id}
   this.store.dispatch(ParcelActions.UpdateParcel({updatedParcel}))
   this.store.dispatch(ParcelActions.LoadParcels())
   this.router.navigate(['/admin/dashboard'], {relativeTo:this.route})

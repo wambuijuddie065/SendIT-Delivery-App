@@ -1,10 +1,11 @@
 .aParcel{
-    border: solid 1px #06062c;
-    height: 300px;
+    /* border: solid 1px #06062c; */
+    height: fit-content;
     width: 250px;
     text-align: center;
     padding: 5px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
+    box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
     
 }
 .parcelsContainer{

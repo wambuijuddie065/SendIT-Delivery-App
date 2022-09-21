@@ -74,8 +74,7 @@ export const updateDelivered:RequestHandler<{parcel_id:string}>=async(req,res)=>
     try {
         let parcel_id=req.params.parcel_id
         const {sender_details,receiver_details,pick_up,destination,description,weight,price,status,is_delivered} = req.body as {
-           
-            parcel_id:string,
+        parcel_id:string,
         sender_details:string
         receiver_details:string
         pick_up:string

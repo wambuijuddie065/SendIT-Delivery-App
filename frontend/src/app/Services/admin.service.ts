@@ -44,11 +44,11 @@ export class AdminService {
   updateParcel(parcel:ParcelInterface):Observable<UpdateResponseInterface>{
     console.log(parcel);
     
-    return this.http.patch<UpdateResponseInterface>(`${this.baseUrl}/deliver/${parcel.parcel_id?parcel.parcel_id:''}`,parcel)
+    return this.http.patch<UpdateResponseInterface>(`${this.baseUrl}/deliver/${parcel.parcel_id}`,parcel)
   }
-  showName(email:string):Observable<string>{
-    const url="http://localhost:5000/clients/name"
-    return this.http.get<string>(`${url}/${email}`,) 
-  }
+  // showName(email:string):Observable<string>{
+  //   const url="http://localhost:5000/clients/name"
+  //   return this.http.get<string>(`${url}/${email}`,) 
+  // }
 
 }

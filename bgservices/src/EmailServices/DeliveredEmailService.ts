@@ -17,6 +17,10 @@ interface ParcelInterface{
     weight:number
     price:number
     status:string
+    sender_name:string
+    sender_contact:string
+    receiver_contact:string
+    receiver_name:string
     is_dispatched:string
     is_delivered:string
     is_cancelled:string

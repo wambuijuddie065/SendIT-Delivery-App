@@ -97,4 +97,4 @@ GET  http://localhost:5000/parcels/sender/wambuijuddie065@gmail.com
 
 ###
 
-GET  http://localhost:5000/parcels/receiver/judywambui620@gmail.com
+GET  http://localhost:5000/parcels/receiver/wambuijuddie065@gmail.com

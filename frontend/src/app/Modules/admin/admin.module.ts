@@ -13,11 +13,11 @@ import { StoreModule } from '@ngrx/store';
 import{parcelReducer} from './AdminStates/parcel.reducer'
 import { ParcelEffect } from './AdminStates/parcel.effects';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { SearchPipe } from 'src/app/Pipes/search.pipe';
 import { DeliveredPipe } from 'src/app/Pipes/delivered.pipe';
 import { DispatchedPipe } from 'src/app/Pipes/dispatched.pipe';
 import { DispatchedComponent } from './dispatched/dispatched.component';
 import { AuthService } from 'src/app/Services/auth.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -30,7 +30,6 @@ import { AuthService } from 'src/app/Services/auth.service';
     AdminDashboardComponent,
     ViewParcelComponent,
     UpdateStatusComponent,
-    SearchPipe,
     DeliveredPipe,
     DispatchedPipe,
     DispatchedComponent
@@ -38,6 +37,7 @@ import { AuthService } from 'src/app/Services/auth.service';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,

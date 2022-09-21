@@ -90,13 +90,6 @@ ELSE
 BEGIN
 UPDATE [ParcelsTable]
 SET
-sender_details=@sender_details,
-receiver_details=@receiver_details,
-pick_up=@pick_up,
-destination=@destination,
-description=@description,
-weight=@weight,
-price=@price,
 status=@status,
 is_delivered='1'
 WHERE parcel_id=@parcel_id
