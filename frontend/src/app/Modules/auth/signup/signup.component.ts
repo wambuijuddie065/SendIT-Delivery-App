@@ -19,6 +19,8 @@ export class SignupComponent implements OnInit {
   contact!:string
   password!:string
   message!:string
+  show:boolean=false
+  
 
   constructor(private fb:FormBuilder,private authService:AuthService,private router:Router) { }
 
@@ -38,15 +40,31 @@ export class SignupComponent implements OnInit {
   onSignUp(){
     const user:SignupInterface=this.signUpForm.value
     console.log(this.signUpForm);
-    
-    this.authService.signUp(user).subscribe((response)=>{
-      console.log(response);
+
+    this.authService.signUp(user).subscribe({
+      next:(data)=>{
+        this.message=data.message
       
-    } , (error)=>{console.log(error)
-    })
+        
+        this.show=true
+      },
+      error:(error)=>{
+        this.message=error.error.message
+        console.log(error);
+        this.show=true
+        
+      },
+      complete:()=>console.log('registered successfully')
+      
+    }),
+    setTimeout(()=>{
+      this.show=false
+    },5000)
+  
 
     this.signUpForm.reset()
-    this.router.navigate(['/auth/login'])}
+    this.router.navigate(['/auth/login'])
+  }
     
 
 }

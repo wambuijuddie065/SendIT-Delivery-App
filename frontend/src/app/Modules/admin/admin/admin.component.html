@@ -1,31 +1,33 @@
 <div class="main">
-    <div class="left">
-        <div class="topLeft">
-            <a href="" routerLink="/admin/dashboard">Dashboard</a>
-            <a href="" routerLink="/admin/dispatched" >Dispatched</a>
-            <a href="" routerLink="/admin/delivered">Delivered</a>
-            <a href="" routerLink="/admin/add" > New Delivery</a>
-        </div>
-        <div class="bottomLeft">
-            <a href="" (click)="logout()">Logout</a>
-        </div>
-       
-        
-       
-
+  <div class="left">
+    <div class="topLeft">
+      <a href="" routerLink="/admin/dashboard">Dashboard</a>
+      <a href="" routerLink="/admin/dispatched">Dispatched</a>
+      <a href="" routerLink="/admin/delivered">Delivered</a>
+      <a href="" routerLink="/admin/add"> New Delivery</a>
     </div>
-    <div class="right">
-        <div class="topRight">
-            <div class="search">
-                <input type="search" placeholder="search..." [(ngModel)]="searchText" (input)="onChange()">
-            </div>
-            <div class="profile">
-                <img src="../../../../assets/user-solid.svg" alt="">
-                <p>{{name}}</p>
-            </div>
-        </div>
-        <div class="bottomRight">
-            <router-outlet></router-outlet>
-        </div>
+    <div class="bottomLeft">
+      <a href="" (click)="logout()">Logout</a>
     </div>
+  </div>
+  <div class="right">
+    <div class="topRight">
+      <img  class="menu" src="../../../../assets/menu-black.svg" alt="">
+      <div class="search">
+        <input
+          type="search"
+          placeholder="search..."
+          [(ngModel)]="searchText"
+          (input)="onChange()"
+        />
+      </div>
+      <div class="profile">
+        <img src="../../../../assets/user-solid.svg" alt="" />
+        <p>{{ name }}</p>
+      </div>
+    </div>
+    <div class="bottomRight">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

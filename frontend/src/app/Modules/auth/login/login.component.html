@@ -1,6 +1,7 @@
 <div class="main">
     <app-navbar></app-navbar>
     <div class="container">
+        <app-messages *ngIf="show" [message]="message" ></app-messages>
         <img class="logo" src="../../../../assets/logo.svg" alt="logo">
             <p>LOGIN</p>
         <form class="loginForm" #loginForm="ngForm" (ngSubmit)="onLogin()" >

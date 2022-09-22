@@ -7,7 +7,7 @@ const routerC=Router()
 routerC.post('/register',registerClient)//register
 routerC.post('/login',loginClient)//login
 routerC.get('/',VerifyToken,getClients)//getusers
-routerC.get('/:client_id',VerifyToken,getClientById)//get clientby id
+routerC.get('/:client_id',getClientById)//get clientby id
 // routerC.get('/name/:email',getName)
 // routerC.get('/dashboard',getDashboard)//navigate to dashboard
 
