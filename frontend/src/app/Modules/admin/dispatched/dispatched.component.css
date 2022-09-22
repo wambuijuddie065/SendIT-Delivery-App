@@ -26,3 +26,23 @@
 .page{
     align-self: baseline;
 }
+@media screen and (max-width: 800px){
+    .aParcel{
+        width: 200px;
+    }
+    .actions{
+        display: flex;
+    }
+  .parcelsContainer{
+    justify-content: center;
+  }
+
+  }
+@media screen and (max-width: 580px){
+    .aParcel{
+        width: 300px;
+    }
+   
+
+
+  }

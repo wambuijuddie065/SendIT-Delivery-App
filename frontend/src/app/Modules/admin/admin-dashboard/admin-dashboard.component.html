@@ -7,9 +7,12 @@
             <p>To:{{parcel.receiver_name}}</p>
            <p> Destination:{{parcel.destination}}</p> 
             <p><i>{{parcel.status}}</i></p>
-            <button (click)="viewParcel(parcel.parcel_id)" class="viewBtn">VIEW</button>
+            <div class="actions">
+                <button (click)="viewParcel(parcel.parcel_id)" class="viewBtn">VIEW</button>
             <button  class="deleteBtn" (click)="onDelete(parcel.parcel_id)">DELETE</button>
                
+            </div>
+            
         </div>
     </div>
    

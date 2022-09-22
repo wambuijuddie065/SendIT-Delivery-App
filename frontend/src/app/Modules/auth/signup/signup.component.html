@@ -2,7 +2,8 @@
     <app-navbar></app-navbar>
     
     <div class="container">
-        <!-- <app-messages [message]="message" *ngIf="message"></app-messages> -->
+        <!-- <p *ngIf="show"></p> -->
+        <app-messages *ngIf="show" [message]="message" ></app-messages>
         <img class="logo" src="../../../../assets/logo.svg" alt="logo">
             <p>SIGN UP</p>
         <form class="signupForm" (ngSubmit)="onSignUp()"  [formGroup]="signUpForm">

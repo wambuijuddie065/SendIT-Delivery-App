@@ -16,6 +16,8 @@ import * as parcelActions from '../../user/UserStates/actions'
 export class LoginComponent implements OnInit {
   email!: string;
   password!: string;
+  message!:string
+  show:boolean=false
   @ViewChild('loginForm') loginForm!: NgForm;
 
   constructor(private router: Router, private authService: AuthService,private store:Store<AppState>) {
@@ -30,23 +32,35 @@ export class LoginComponent implements OnInit {
   onLogin() {
     if (this.loginForm.valid) {
       const client= this.loginForm.value;
-     
-      this.authService.login(client).subscribe((response) => {
-      console.log(response)
-        response.token ? localStorage.setItem('token', response.token) : '';
-        response.role ? localStorage.setItem('role', response.role) : '';
-        response.name ? localStorage.setItem('name', response.name) : '';
-        response.email ? localStorage.setItem('email', response.email) : '';
-        response.client_id? localStorage.setItem('client_id', response.client_id): '';
-       
+ 
+      this.authService.login(client).subscribe({
+        next:(response)=>{
+          this.message=response.message
+          this.show=true
+          response.token ? localStorage.setItem('token', response.token) : '';
+          response.role ? localStorage.setItem('role', response.role) : '';
+          response.name ? localStorage.setItem('name', response.name) : '';
+          response.email ? localStorage.setItem('email', response.email) : '';
+          response.client_id? localStorage.setItem('client_id', response.client_id): '';
+         
+  
+  
+          this.router.navigate(
+            response.role==='admin'?['/admin/dashboard']:response.role==='client'?['/user/sent-parcels']:['/']
+          )},
+          error:(error)=>{
+            this.message=error.error
+            console.log(error);
+            this.show=true
+            
+          },
+          complete:()=>console.log('Logged in successfully')
+          
+        }),
+        setTimeout(()=>{
+          this.show=false
+        },5000)
 
-
-        this.router.navigate(
-          response.role==='admin'?['/admin/dashboard']:response.role==='client'?['/user/sent-parcels']:['/']
-        )
-
-      
-      });
      
      
     }

@@ -30,6 +30,11 @@ export class AdminDashboardComponent implements OnInit {
     this.adminService.search$.subscribe((response) => {
       this.srch = response;
     });
+
+    // this.adminService.getParcels().subscribe((res)=>{
+    //   console.log(res);
+      
+    // })
     
   }
 

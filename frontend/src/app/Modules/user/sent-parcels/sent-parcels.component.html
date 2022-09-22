@@ -4,8 +4,9 @@
         <div *ngFor="let parcel of parcels | search:srch | paginate:{itemsPerPage:8,currentPage:page} ,let i=index" class="aParcel">
         
             
-            <p>From: {{parcel.sender_name}}</p>
+            
             <p>To:{{parcel.receiver_name}}</p>
+            <p>Contact: {{parcel.receiver_contact}}</p>
            <p> Destination:{{parcel.destination}}</p> 
             <p><i>{{parcel.status}}</i></p>
             <button (click)="viewParcel(parcel.parcel_id)" class="viewBtn">VIEW</button>

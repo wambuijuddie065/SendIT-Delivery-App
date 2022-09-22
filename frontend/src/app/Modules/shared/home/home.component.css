@@ -9,17 +9,17 @@
    
     display: flex;
     color: white;
-    /* justify-content: center; */
+  
     
 }
+
 .leftContainer{
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 500px;
-    /* padding-top: 70px; */
-    /* gap: 30px; */
+   
     
     
 
@@ -52,4 +52,15 @@
   
     width: 100%;
     height: 80%;
+}
+.menu {
+    display: none;
+}
+
+@media screen and (max-width:1000px) {
+    .menu{
+        display:block;
+    }
+    .actionsBtns{display: none;}
+    
 }
