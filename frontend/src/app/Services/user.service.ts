@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ParcelInterface } from '../Interfaces/interfaces';
@@ -8,6 +8,7 @@ import { ParcelInterface } from '../Interfaces/interfaces';
 })
 export class UserService {
   email=localStorage.getItem('email') as string
+  token=localStorage.getItem('token') as string
 
   private subject=new Subject<string>()
   search$=this.subject.asObservable()
@@ -18,13 +19,23 @@ export class UserService {
   constructor(private http:HttpClient) { }
   getSentParcels():Observable<ParcelInterface[]>{
     
-   return this.http.get<ParcelInterface[]>(`http://localhost:5000/parcels/sender/${this.email}`)
+   return this.http.get<ParcelInterface[]>(`http://localhost:5000/parcels/sender/${this.email}`,{
+    headers:new HttpHeaders({
+      token:this.token
+
+    })
+  })
    
    
   }
   getReceivedParcels():Observable<ParcelInterface[]>{
     
-   return this.http.get<ParcelInterface[]>(`http://localhost:5000/parcels/receiver/${this.email}`)
+   return this.http.get<ParcelInterface[]>(`http://localhost:5000/parcels/receiver/${this.email}`,{
+    headers:new HttpHeaders({
+      token:this.token
+
+    })
+  })
    
    
   }

@@ -22,7 +22,12 @@ export class AdminService {
   constructor(private http :HttpClient) { }
 
   addParcel(parcel:ParcelInterface):Observable<{message:string}>{
-    return this.http.post<{message:string}>(`${this.baseUrl}/add`,parcel)
+    return this.http.post<{message:string}>(`${this.baseUrl}/add`,parcel,{
+      headers:new HttpHeaders({
+        token:this.token
+
+      })
+    })
 
   }
   getParcels():Observable<ParcelInterface[]>{
@@ -35,16 +40,31 @@ export class AdminService {
 
   }
   getParcel(parcel_id:string):Observable<ParcelInterface[]>{
-    return this.http.get<ParcelInterface[]>(`${this.baseUrl}/${parcel_id}`)
+    return this.http.get<ParcelInterface[]>(`${this.baseUrl}/${parcel_id}`,{
+      headers:new HttpHeaders({
+        token:this.token
+
+      })
+    })
 
   }
   deleteParcel(parcel_id:string):Observable<{message:string}>{
-    return this.http.delete<{message:string}>(`${this.baseUrl}/delete/${parcel_id}`)
+    return this.http.delete<{message:string}>(`${this.baseUrl}/delete/${parcel_id}`,{
+      headers:new HttpHeaders({
+        token:this.token
+
+      })
+    })
   }
   updateParcel(parcel:ParcelInterface):Observable<UpdateResponseInterface>{
-    console.log(parcel);
+   
     
-    return this.http.patch<UpdateResponseInterface>(`${this.baseUrl}/deliver/${parcel.parcel_id}`,parcel)
+    return this.http.patch<UpdateResponseInterface>(`${this.baseUrl}/deliver/${parcel.parcel_id}`,parcel,{
+      headers:new HttpHeaders({
+        token:this.token
+
+      })
+    })
   }
   // showName(email:string):Observable<string>{
   //   const url="http://localhost:5000/clients/name"
