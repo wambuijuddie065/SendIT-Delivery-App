@@ -35,10 +35,13 @@ export const addParcel=async(req:ExtendedRequest,res:Response)=>{
         if (error) {
           res.status(401).json({ error: error.details[0].message });
         }
+        else{
+            db.exec('insertUpdateParcel',{ parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status})
+        res.status(201).send("Parcel Dispatched Successfully!")
+        }
        
         
-        db.exec('insertUpdateParcel',{ parcel_id,sender_details,receiver_details,pick_up,destination,description,weight,price,status})
-        res.status(201).send("Parcel Dispatched Successfully!")
+        
     } catch (error) {
         res.status(400).send("Failed To Add Parcel!")
     }

@@ -57,3 +57,17 @@
     width: 50px;
     
 }
+.menu {
+    display: none;
+}
+
+@media screen and (max-width:1000px) {
+    .menu{
+        display:block;
+    }
+    .actionsBtns{display: none;}
+    .links{
+        display: none;
+    }
+    
+}

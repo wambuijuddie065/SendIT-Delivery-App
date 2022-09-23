@@ -86,6 +86,16 @@ input.ng-invalid.ng-touched {
     .container {
         flex-wrap: wrap;
         flex-direction: column-reverse;
+        align-items: center;
+    }
+    img{
+        width: 60%;
+    }
+    h3{
+        text-align: center;
+    }
+    input{
+        width: fit-content;
     }
 
 }
@@ -126,7 +136,7 @@ input.ng-invalid.ng-touched {
     h3 {
         padding: 0;
         font-size: 20px;
-        text-align: start;
+        text-align: center;
     }
 
 }

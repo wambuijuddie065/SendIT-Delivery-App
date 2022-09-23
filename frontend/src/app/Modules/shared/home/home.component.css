@@ -53,14 +53,13 @@
     width: 100%;
     height: 80%;
 }
-.menu {
-    display: none;
-}
 
-@media screen and (max-width:1000px) {
-    .menu{
-        display:block;
+@media screen and (max-width:780px) {
+    .container{
+        flex-direction: column-reverse;
     }
-    .actionsBtns{display: none;}
+    .leftContainer,.rightContainer{
+        width: 100%;
+    }
     
 }
