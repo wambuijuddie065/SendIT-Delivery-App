@@ -31,10 +31,6 @@ export class AdminDashboardComponent implements OnInit {
       this.srch = response;
     });
 
-    // this.adminService.getParcels().subscribe((res)=>{
-    //   console.log(res);
-      
-    // })
     
   }
 
@@ -43,7 +39,8 @@ export class AdminDashboardComponent implements OnInit {
   }
   onDelete(id: string) {
     this.store.dispatch(parcelActions.DeleteParcel({ id }));
-    this.store.dispatch(parcelActions.LoadParcels());
+    // this.store.dispatch(parcelActions.LoadParcels());
+    this.loadParcels()
   }
   viewParcel(id: string) {
  this.store.dispatch(parcelActions.SelectedId({ id }));

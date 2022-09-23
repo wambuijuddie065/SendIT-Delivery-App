@@ -49,6 +49,14 @@
     align-items: center;
 
 }
+.active{
+    background-color: #e11584;
+    color:white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight:800;
+    font-weight:20px;
+}
 .search input{
     font-size: large;
     border: none;

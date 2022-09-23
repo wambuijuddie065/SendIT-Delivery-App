@@ -40,3 +40,19 @@ height: 80%;
 .leftDiv p{
     margin-top: 30px;
 }
+
+@media screen and (max-width:800px) {
+    .mainContainer{
+        flex-direction: column-reverse;
+        height: fit-content;
+    }
+    .rightDiv{
+        /* width: 100%; */
+        display: none;
+    }
+    .leftDiv h3{
+        border-bottom: 0;
+        width: auto;
+        justify-content: flex-start;
+    }
+}

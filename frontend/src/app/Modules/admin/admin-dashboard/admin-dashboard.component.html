@@ -2,7 +2,7 @@
 <div class="main" *ngIf="parcels$ |async as parcels">
     <div *ngIf="parcels.length ;else noParcels" class="parcelsContainer">
    
-        <div *ngFor="let parcel of parcels |search:srch |  paginate:{itemsPerPage:4,currentPage:page}  ,let i=index" class="aParcel">
+        <div *ngFor="let parcel of parcels |search:srch |  paginate:{itemsPerPage:8,currentPage:page}  ,let i=index" class="aParcel">
             <p>From: {{parcel.sender_name}}</p>
             <p>To:{{parcel.receiver_name}}</p>
            <p> Destination:{{parcel.destination}}</p> 
@@ -15,8 +15,11 @@
             
         </div>
     </div>
+    <div>
+        <pagination-controls class="page" (pageChange)="page =$event"></pagination-controls>
+    </div>
    
-    <pagination-controls class="page" (pageChange)="page =$event"></pagination-controls>
+    
     </div>
    
 

@@ -18,19 +18,14 @@ SELECT
     p.status,
 	p.receiver_details,
 	p.sender_details,
-	d.receiver_name,
-	d.receiver_contact,
-    c.name sender_name,
-    c.contact sender_contact
+	r.name receiver_name,
+	r.contact receiver_contact,
+    s.name sender_name,
+    s.contact sender_contact
     FROM 
-	ParcelsTable p inner join ClientsTable c 
-	on p.sender_details = c.email  
-	inner join (
-		select 
-			c1.name receiver_name,c1.contact receiver_contact, 
-			c1.email receiver_email from ParcelsTable p1 
-		inner join 
-		ClientsTable c1 on p1.receiver_details = c1.email
-	) as d on d.receiver_email = p.receiver_details 
+	ParcelsTable p inner join ClientsTable s 
+	on p.sender_details = s.email  
+    inner join ClientsTable r
+	on p.receiver_details=r.email
 	WHERE parcel_id=@parcel_id AND is_cancelled='0'
 END

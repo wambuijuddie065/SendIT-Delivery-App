@@ -43,10 +43,13 @@ export const registerClient = async (req: ExtendedRequest, res: Response) => {
           .status(400)
           .send({ message: "Email Already Exists!", success: false });
       }
-
+      else{
+        
     db.exec("insertClient", { client_id, name, email, contact, password });
 
     res.status(201).json({ message: "Client added successfully" });
+      }
+
   } catch (error) {
     res.status(400).send("An Error Occurred!");
   }
@@ -66,24 +69,27 @@ export const loginClient = async (req: ExtendedRequest, res: Response) => {
       if (!validPassword) {
         return res.status(401).send("Invalid Password!");
       }
-      const payload = client.map((item) => {
-        const { password, ...rest } = item;
-        return rest;
-      });
-
-      const token = jwt.sign(payload[0], process.env.KEY as string, {
-        expiresIn: "3600000s",
-      });
-      return res
-        .status(200)
-        .json({
-          message: "Client Logged In Successfully!",
-          token,
-          role: client[0].role,
-          name: client[0].name,
-          client_id:client[0].client_id,
-          email:client[0].email
+      else{
+        const payload = client.map((item) => {
+          const { password, ...rest } = item;
+          return rest;
         });
+  
+        const token = jwt.sign(payload[0], process.env.KEY as string, {
+          expiresIn: "3600000s",
+        });
+        return res
+          .status(200)
+          .json({
+            message: "Client Logged In Successfully!",
+            token,
+            role: client[0].role,
+            name: client[0].name,
+            client_id:client[0].client_id,
+            email:client[0].email
+          });
+      }
+      
     }
   } catch (error) {
     res.status(400).send("An Error Occurred!");

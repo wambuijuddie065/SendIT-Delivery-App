@@ -12,6 +12,7 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    
 }
 .viewBtn,.deleteBtn{
     height: 30px;
